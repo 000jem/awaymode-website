@@ -506,33 +506,46 @@ code, kbd {
   border: 1px solid rgba(122, 154, 114, .5);
 }
 
-/* ─── Modes table ──────────────────────────────────────────── */
+/* ─── Modes (editorial, no row borders) ────────────────────── */
 
-.modes { display: grid; }
+.modes {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: clamp(40px, 5vw, 56px);
+}
+@media (min-width: 820px) {
+  .modes { grid-template-columns: 1fr 1fr; gap: clamp(48px, 6vw, 72px) clamp(56px, 6vw, 88px); }
+}
+
 .mode-row {
   display: grid;
-  grid-template-columns: 130px 140px 1fr;
-  gap: 28px;
-  padding: 22px 0;
-  border-top: 1px solid var(--line);
-  align-items: baseline;
+  gap: 8px;
 }
-.mode-row:last-child { border-bottom: 1px solid var(--line); }
+.mode-row__head {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+}
 .mode-row__name {
   font-family: 'Fraunces', serif;
   font-weight: 500;
-  font-size: 19px;
+  font-size: clamp(24px, 2.6vw, 30px);
   color: var(--cream);
-  letter-spacing: -.012em;
+  letter-spacing: -.018em;
+  line-height: 1.05;
 }
 .mode-row__spec {
   font-family: ui-monospace, monospace;
-  font-size: 13.5px;
+  font-size: 13px;
   color: var(--ember);
+  letter-spacing: .02em;
 }
-.mode-row__desc { font-size: 15px; color: var(--sand); margin: 0; line-height: 1.55; }
-@media (max-width: 640px) {
-  .mode-row { grid-template-columns: 1fr; gap: 6px; }
+.mode-row__desc {
+  font-size: 15.5px;
+  color: var(--sand);
+  margin: 0;
+  line-height: 1.62;
+  max-width: 44ch;
 }
 
 /* ─── Pricing ──────────────────────────────────────────────── */
