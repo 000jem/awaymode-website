@@ -1,0 +1,353 @@
+/* Holt website — matches the iOS app's warm-dark ember palette.
+ * Single stylesheet shared by all pages. No build step, no JS frameworks.
+ * Fonts pulled from Google Fonts so the wordmark stays Fraunces.
+ */
+
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Jost:wght@300;400;500;600&display=swap');
+
+:root {
+  /* Background gradient stops — pulled from the app's ambient glow */
+  --bg-top:    #0C0A08;
+  --bg-mid:    #160B05;
+  --bg-bottom: #1A0D05;
+
+  /* Neutrals */
+  --cream:        #FFF1D6;
+  --sand:         #A29A8E;
+  --muted:        #6B6358;
+  --surface:      rgba(255, 244, 224, 0.055);
+  --surface-strong: rgba(255, 244, 224, 0.085);
+
+  /* Ember (the scarcity color — used once per section, never as a wash) */
+  --ember:       #E07856;
+  --ember-light: #F08A65;
+
+  /* Hairlines */
+  --border:        rgba(255, 180, 95, 0.18);
+  --border-strong: rgba(255, 112, 32, 0.40);
+
+  /* Type scale */
+  --max-width: 640px;
+  --pad-inline: clamp(24px, 5vw, 48px);
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
+}
+
+body {
+  background:
+    radial-gradient(ellipse at 50% -10%, rgba(232, 107, 36, 0.10), transparent 55%),
+    linear-gradient(180deg, var(--bg-top) 0%, var(--bg-mid) 45%, var(--bg-bottom) 100%);
+  background-attachment: fixed;
+  color: var(--cream);
+  font-family: 'Jost', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.62;
+  letter-spacing: 0.005em;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ─── Layout ─────────────────────────────────────────────────── */
+
+.page {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 56px var(--pad-inline) 96px;
+}
+
+.page--narrow { max-width: 560px; }
+
+/* Top wordmark — same Fraunces semibold as the in-app brand mark */
+.wordmark {
+  display: inline-block;
+  font-family: 'Fraunces', serif;
+  font-weight: 600;
+  font-size: 28px;
+  letter-spacing: -0.025em;
+  color: var(--cream);
+  text-decoration: none;
+  margin-bottom: 32px;
+}
+
+.wordmark:hover { color: var(--ember-light); }
+
+/* ─── Typography ─────────────────────────────────────────────── */
+
+h1 {
+  font-family: 'Fraunces', serif;
+  font-weight: 600;
+  font-size: clamp(36px, 6vw, 52px);
+  line-height: 1.08;
+  letter-spacing: -0.028em;
+  color: var(--cream);
+  margin: 0 0 8px;
+}
+
+h1 .ember { color: var(--ember); }
+
+h2 {
+  font-family: 'Fraunces', serif;
+  font-weight: 600;
+  font-size: 22px;
+  letter-spacing: -0.015em;
+  color: var(--cream);
+  margin: 56px 0 12px;
+}
+
+h3 {
+  font-family: 'Jost', system-ui, sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--sand);
+  margin: 36px 0 10px;
+}
+
+.lede {
+  font-family: 'Fraunces', serif;
+  font-weight: 400;
+  font-style: italic;
+  font-size: 18px;
+  line-height: 1.55;
+  color: var(--sand);
+  margin: 0 0 40px;
+  max-width: 38ch;
+}
+
+p {
+  margin: 0 0 16px;
+  color: var(--cream);
+}
+
+p.secondary { color: var(--sand); }
+
+a {
+  color: var(--ember);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(232, 107, 36, 0.35);
+  transition: border-color 0.15s ease, color 0.15s ease;
+}
+
+a:hover {
+  color: var(--ember-light);
+  border-bottom-color: var(--ember);
+}
+
+strong { color: var(--cream); font-weight: 500; }
+
+ul {
+  padding-left: 1.1em;
+  margin: 0 0 20px;
+}
+
+li {
+  margin-bottom: 6px;
+  color: var(--cream);
+}
+
+li::marker { color: var(--ember); }
+
+/* ─── Cards ─────────────────────────────────────────────────── */
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 24px 26px;
+  margin: 24px 0;
+}
+
+.card h2 { margin-top: 0; }
+
+.callout {
+  background: rgba(232, 107, 36, 0.06);
+  border: 1px solid var(--border-strong);
+  border-radius: 14px;
+  padding: 18px 22px;
+  margin: 28px 0;
+  font-size: 14.5px;
+  color: var(--sand);
+}
+
+.callout strong { color: var(--cream); }
+
+/* ─── FAQ / details ─────────────────────────────────────────── */
+
+details {
+  border-top: 1px solid var(--border);
+  padding: 18px 0;
+}
+
+details:last-of-type { border-bottom: 1px solid var(--border); }
+
+details summary {
+  cursor: pointer;
+  font-family: 'Jost', system-ui, sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  color: var(--cream);
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+details summary::-webkit-details-marker { display: none; }
+details summary::marker { display: none; }
+
+details summary::after {
+  content: '+';
+  font-family: 'Fraunces', serif;
+  font-weight: 400;
+  font-size: 22px;
+  color: var(--ember);
+  margin-left: 16px;
+  transition: transform 0.2s ease;
+}
+
+details[open] summary::after {
+  content: '–';
+  transform: rotate(0deg);
+}
+
+details > *:not(summary) {
+  margin-top: 14px;
+  color: var(--sand);
+  font-size: 15px;
+}
+
+/* ─── Footer ─────────────────────────────────────────────────── */
+
+.foot {
+  margin-top: 80px;
+  padding-top: 24px;
+  border-top: 1px solid var(--border);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px 24px;
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.foot a {
+  color: var(--sand);
+  border-bottom: none;
+}
+
+.foot a:hover { color: var(--ember); }
+
+.foot .right {
+  margin-left: auto;
+  font-style: italic;
+  font-family: 'Fraunces', serif;
+}
+
+/* ─── Landing-page specific ─────────────────────────────────── */
+
+.hero {
+  margin-top: 24px;
+  margin-bottom: 56px;
+}
+
+.tagline {
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  font-weight: 400;
+  font-size: clamp(20px, 3vw, 24px);
+  color: var(--sand);
+  margin: 16px 0 36px;
+  max-width: 30ch;
+  line-height: 1.4;
+}
+
+.cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--ember);
+  color: var(--cream);
+  font-family: 'Jost', system-ui, sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 14px 22px;
+  border-radius: 14px;
+  border: none;
+  text-decoration: none;
+  transition: transform 0.12s ease, background 0.15s ease;
+  box-shadow: 0 8px 24px rgba(232, 107, 36, 0.25);
+}
+
+.cta:hover {
+  background: var(--ember-light);
+  transform: translateY(-1px);
+  border-bottom: none;
+}
+
+.cta:active { transform: translateY(0); }
+
+.feature-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  margin: 56px 0;
+}
+
+@media (min-width: 600px) {
+  .feature-grid { grid-template-columns: 1fr 1fr; }
+}
+
+.feature {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 20px 22px;
+}
+
+.feature h3 {
+  margin: 0 0 6px;
+  color: var(--ember);
+  text-transform: none;
+  letter-spacing: -0.005em;
+  font-family: 'Fraunces', serif;
+  font-weight: 600;
+  font-size: 17px;
+}
+
+.feature p {
+  margin: 0;
+  font-size: 14.5px;
+  color: var(--sand);
+  line-height: 1.55;
+}
+
+/* ─── Selection / focus polish ──────────────────────────────── */
+
+::selection {
+  background: rgba(232, 107, 36, 0.35);
+  color: var(--cream);
+}
+
+:focus-visible {
+  outline: 2px solid var(--ember);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* ─── Reduced motion ────────────────────────────────────────── */
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    transition: none !important;
+    animation: none !important;
+  }
+}

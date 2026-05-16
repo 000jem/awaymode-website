@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="theme-color" content="#0C0A08" />
+<title>Support — Holt</title>
+<meta name="description" content="Get help with Holt. Common questions about Screen Time permissions, blocked apps, strict mode, and more." />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90' font-family='serif' fill='%23E07856'%3EH%3C/text%3E%3C/svg%3E" />
+<link rel="stylesheet" href="assets/style.css" />
+</head>
+<body>
+  <main class="page page--narrow">
+    <a href="index.html" class="wordmark">Holt</a>
+
+    <h1>Support</h1>
+    <p class="lede">Most questions are answered below. Anything else, we read every email.</p>
+
+    <div class="callout">
+      <strong>Need a human?</strong>
+      Write to <a href="mailto:hello@holt.app">hello@holt.app</a>. One person reads
+      everything. Expect a real reply within a day or two, not a ticket number.
+    </div>
+
+    <h2>Getting started</h2>
+
+    <details>
+      <summary>How do I start a session?</summary>
+      <p>
+        Open Holt. Pick a mode from the row at the bottom — Quick, Pomodoro,
+        or Deep. Tap the timer or tap Fen. The session begins.
+      </p>
+    </details>
+
+    <details>
+      <summary>What's the difference between the modes?</summary>
+      <p>
+        <strong>Quick</strong> is one 10-minute sit. Good for the in-between moments.
+        <br><strong>Pomodoro</strong> is the classic 25/5 chain, four times through —
+        about two hours total with breaks.
+        <br><strong>Deep</strong> is 90 minutes of strict focus. The latch stays shut.
+        You can also tap the <em>New</em> tile to build your own.
+      </p>
+    </details>
+
+    <details>
+      <summary>Why does Holt ask for Screen Time permission?</summary>
+      <p>
+        Holt uses Apple's Screen Time framework (also called Family Controls) to
+        actually block the apps you choose. Without that permission, Holt can still
+        run a timer, but it can't shut anything out. Screen Time is the Apple-provided
+        way to block apps without compromising your privacy — Holt never sees the
+        names of the apps you pick.
+      </p>
+    </details>
+
+    <h2>Blocking and modes</h2>
+
+    <details>
+      <summary>How do I pick which apps to block?</summary>
+      <p>
+        Open <strong>Settings → Modes</strong>, tap the mode you want to edit, then
+        tap <em>Block apps</em>. iOS will show its Screen Time picker — pick apps,
+        categories, or websites. Tap Done. The selection saves to that mode.
+      </p>
+    </details>
+
+    <details>
+      <summary>What does Deep Holt do that the other modes don't?</summary>
+      <p>
+        Deep Holt is the strict mode. Once you start a session in it, you can't
+        cancel mid-session by tapping <em>End</em>. The shield holds until the
+        timer runs out. It's there for the days you really need to be unable to
+        change your mind.
+      </p>
+    </details>
+
+    <details>
+      <summary>The shield isn't blocking the app I picked.</summary>
+      <p>
+        First, make sure you've granted Screen Time access in iOS Settings →
+        Holt → Screen Time. If access is granted but the block isn't working, try:
+      </p>
+      <ul>
+        <li>End the session and start a new one (re-applies the shield).</li>
+        <li>Toggle Screen Time off and back on in iOS Settings.</li>
+        <li>Restart your phone. (Genuinely — Screen Time sometimes wedges itself.)</li>
+      </ul>
+      <p>
+        Still stuck? Email <a href="mailto:hello@holt.app">hello@holt.app</a> with
+        the iOS version and the iPhone model. Screen Time has a few quirks we can
+        usually narrow down quickly.
+      </p>
+    </details>
+
+    <h2>History, Stats, and data</h2>
+
+    <details>
+      <summary>Where does my session history live?</summary>
+      <p>
+        On your phone. Holt uses Apple's SwiftData to store everything locally. There
+        is no Holt server. Uninstalling the app removes the history.
+      </p>
+    </details>
+
+    <details>
+      <summary>Can I sync history across devices?</summary>
+      <p>
+        Not in v1. iCloud sync is on the roadmap, but Holt v1 is single-device on
+        purpose — fewer moving parts, fewer ways for your data to leak.
+      </p>
+    </details>
+
+    <details>
+      <summary>How do I delete my data?</summary>
+      <p>
+        Uninstall Holt. Every session record, mode, and preference is removed with
+        the app. There's nothing on a server to wipe because there is no server.
+      </p>
+    </details>
+
+    <details>
+      <summary>Does Holt send any data to Apple Health?</summary>
+      <p>
+        Only if you opt in. Holt can write completed focus sessions to Apple Health
+        as Mindful Minutes. It's one-way: Holt writes, Holt does not read. You can
+        revoke this any time in iOS Settings → Privacy & Security → Health.
+      </p>
+    </details>
+
+    <h2>Subscription and pricing</h2>
+
+    <details>
+      <summary>What's free vs paid?</summary>
+      <p>
+        The Quick and Pomodoro modes are free, and the timer runs whether or not
+        you pay. App blocking and the Deep mode are part of the paid tier. The
+        paywall appears the first time you try to start a paid feature.
+      </p>
+    </details>
+
+    <details>
+      <summary>How do I cancel a subscription?</summary>
+      <p>
+        iOS Settings → tap your name at the top → Subscriptions → Holt → Cancel.
+        Apple handles all subscription state; we never see your billing details.
+      </p>
+    </details>
+
+    <details>
+      <summary>I bought lifetime on one device. Will it work on a new one?</summary>
+      <p>
+        Yes. Tap <em>Restore Purchases</em> on the paywall in Holt on the new
+        device — Apple's StoreKit will recognise your purchase and unlock the app.
+      </p>
+    </details>
+
+    <details>
+      <summary>I want a refund.</summary>
+      <p>
+        Apple handles all refunds. Go to
+        <a href="https://reportaproblem.apple.com">reportaproblem.apple.com</a>,
+        find the Holt purchase, and request a refund. We don't have access to your
+        payment information and can't process refunds ourselves.
+      </p>
+    </details>
+
+    <h2>Other</h2>
+
+    <details>
+      <summary>Why a fennec fox?</summary>
+      <p>
+        A "holt" is the den of a fox. Fen is a fennec — small, alert, quiet, in his
+        prime. He fits the brand: a sentinel, not a coach.
+      </p>
+    </details>
+
+    <details>
+      <summary>Will Holt come to iPad or Mac?</summary>
+      <p>
+        Maybe. v1 is iPhone-only on purpose. If enough people ask for iPad, it's
+        not a huge port. Mac is further out.
+      </p>
+    </details>
+
+    <details>
+      <summary>Found a bug. Where do I send it?</summary>
+      <p>
+        <a href="mailto:hello@holt.app?subject=Bug%20report">hello@holt.app</a>.
+        Include your iOS version, iPhone model, and what you were doing when it
+        broke. Screenshots are gold. We'll get back to you.
+      </p>
+    </details>
+
+    <footer class="foot">
+      <a href="index.html">Home</a>
+      <a href="privacy.html">Privacy</a>
+      <span class="right">Fen keeps watch.</span>
+    </footer>
+  </main>
+</body>
+</html>
