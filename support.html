@@ -5,8 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta name="theme-color" content="#0C0A08" />
 <title>Support — Holt</title>
-<meta name="description" content="Help with Screen Time permissions, app blocking, modes, subscriptions, and refunds." />
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90' font-family='serif' fill='%23E07856'%3EH%3C/text%3E%3C/svg%3E" />
+<meta name="description" content="Help with Screen Time permissions, blocking, modes, subscriptions, and troubleshooting." />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%23E07856'/%3E%3Ctext x='50' y='72' font-size='62' font-family='serif' font-weight='600' text-anchor='middle' fill='%23FFF1D6'%3EH%3C/text%3E%3C/svg%3E" />
 <link rel="stylesheet" href="assets/style.css" />
 </head>
 <body>
@@ -42,76 +42,82 @@
     <article class="doc__body">
       <p class="eyebrow">Help</p>
       <h1>Support</h1>
-      <p class="doc__meta">Most questions are answered below. For anything else, email <a href="mailto:hello@holt.app">hello@holt.app</a>.</p>
+      <p class="doc__meta">Common questions, plus an email at the bottom. One inbox reads everything.</p>
 
-      <!-- Getting started ───────────────────────────────────── -->
+      <!-- Getting started ─────────────────────────────────── -->
       <section class="faq-group" id="start">
         <h2>Getting started</h2>
         <p class="faq-group__hint">First-launch flow and how a session works.</p>
 
         <details class="q">
-          <summary>How do I start my first focus session?</summary>
+          <summary>How do I start my first session?</summary>
           <ol>
-            <li>Tap a mode tile at the bottom of the screen (Quick, Pomodoro, or Deep).</li>
-            <li>Tap the timer in the centre, or tap Fen on the right.</li>
-            <li>The session begins. The blocked apps disappear for the duration.</li>
+            <li>Tap a mode tile near the bottom of the Timer screen: Quick, Pomodoro, or Deep.</li>
+            <li>Tap the timer disc in the centre, or tap Fen.</li>
+            <li>The session begins. Any apps you've configured for that mode disappear behind the iOS shield.</li>
           </ol>
-          <p>If this is your first session and your selected mode has app blocking configured, iOS will ask for Screen Time permission. Approve to start; decline to run the session as a timer only.</p>
+          <p>If the mode you picked has app blocking configured, iOS will ask for Screen Time permission the first time. Approve to start; decline to run the session as a timer only.</p>
         </details>
 
         <details class="q">
-          <summary>What's the difference between tapping Fen and tapping the timer?</summary>
-          <p>Nothing — they both start the same session. Two tap targets are provided because users instinctively reach for the timer or the mascot, and either should work.</p>
+          <summary>Tap Fen or tap the timer. Is there a difference?</summary>
+          <p>No. Both start the same session. Two tap targets exist because users instinctively reach for the timer or the mascot, and either should work.</p>
         </details>
 
         <details class="q">
           <summary>Where do notifications come from?</summary>
-          <p>Locally, from <code>UNUserNotificationCenter</code>. Holt schedules them at the moment the session starts, so they fire even if the app is backgrounded or force-quit. For chained modes (Pomodoro), every phase transition gets its own notification: "Break time" at each work-end, "Back to it" at each break-end, and "Done" at the chain's end.</p>
+          <p>Locally. Holt schedules them through Apple's UserNotifications framework the moment a session starts, so they fire even if the app is backgrounded or force-quit. For chained modes such as Pomodoro, every phase boundary gets its own alert: "Break time" at each work-end, "Back to it" at each break-end, and "Done" when the chain finishes.</p>
+        </details>
+
+        <details class="q">
+          <summary>What happens if I force-quit Holt during a session?</summary>
+          <p>Nothing bad. Holt writes the session state to disk at every transition. When you reopen the app it picks up where you left off, and the Screen Time shield stays up in the meantime. Force-quitting does not end a session.</p>
         </details>
       </section>
 
-      <!-- App blocking ──────────────────────────────────────── -->
+      <!-- App blocking ──────────────────────────────────── -->
       <section class="faq-group" id="blocking">
         <h2>App blocking</h2>
-        <p class="faq-group__hint">Screen Time integration, strict mode, and selection.</p>
+        <p class="faq-group__hint">Screen Time integration and strict mode.</p>
 
         <details class="q">
-          <summary>Why does Holt need Screen Time access?</summary>
-          <p>Holt uses Apple's FamilyControls framework — the same one that powers Screen Time — to shield the apps you select. Without that permission Holt can still run a timer, but it cannot block anything. The framework keeps the actual app names opaque to Holt; we only see anonymised tokens that work on your device.</p>
+          <summary>Why does Holt ask for Screen Time access?</summary>
+          <p>Because the actual blocking is done by iOS, not by Holt. The FamilyControls framework powers Apple's own Screen Time feature, and Holt uses it to apply a shield over the apps you flagged. Without that permission Holt can still run a timer, but it cannot block anything.</p>
+          <p>The framework is designed for privacy: Holt sees opaque tokens, not app names. We cannot read which apps are on your phone.</p>
         </details>
 
         <details class="q">
-          <summary>How do I select which apps to block?</summary>
+          <summary>How do I select apps to block?</summary>
           <ol>
             <li>Open <strong>Settings → Modes</strong> in Holt.</li>
             <li>Tap the mode you want to configure.</li>
             <li>Tap <strong>Block apps</strong>.</li>
-            <li>Pick apps, categories, or websites in iOS's Screen Time picker. Tap Done.</li>
+            <li>iOS presents its Screen Time picker. Pick apps, categories, or websites and tap Done.</li>
           </ol>
-          <p>Each mode keeps its own selection, so Pomodoro can block social media while Deep blocks everything except your editor and design tools.</p>
+          <p>Each mode keeps its own selection. Pomodoro can shield social media while Deep shields everything but your editor.</p>
         </details>
 
         <details class="q">
-          <summary>What does Deep mode do that the other modes don't?</summary>
-          <p>Deep mode is strict. Once you start a session in it, the End button is disabled and the shield holds until the timer runs out. Other modes allow you to end the session early via a confirmation dialog. Use Deep when you genuinely need to remove the option to bail.</p>
+          <summary>What's special about Deep mode?</summary>
+          <p>Deep is strict. Once started, the End button is disabled and the shield holds until the timer runs out. Other modes let you end the session early via a confirmation dialog. Use Deep when you genuinely want the option to bail removed.</p>
         </details>
 
         <details class="q">
-          <summary>Can I bypass the shield in strict mode?</summary>
-          <p>Not from inside Holt. The shield is enforced by iOS at the OS level. Theoretically you could uninstall the app, but iOS's Screen Time will continue to apply restrictions for a brief period after uninstall, and your session history is permanently lost. In practice: don't start a strict session unless you mean it.</p>
+          <summary>Can I get around the strict shield?</summary>
+          <p>Not from inside Holt. The shield is enforced at the OS level. You could uninstall the app, but iOS continues to apply Screen Time restrictions briefly after uninstall, and your session record is permanently lost. The polite answer is: don't start a strict session unless you mean it.</p>
         </details>
       </section>
 
-      <!-- Modes ─────────────────────────────────────────────── -->
+      <!-- Modes ─────────────────────────────────────────── -->
       <section class="faq-group" id="modes">
         <h2>Modes</h2>
 
         <details class="q">
-          <summary>What are the default modes?</summary>
+          <summary>What are the built-in modes?</summary>
           <ul>
-            <li><strong>Quick</strong> — one 10-minute block, no chain.</li>
-            <li><strong>Pomodoro</strong> — 25-minute work blocks, four cycles, 5-minute breaks in between. 115 minutes wall-clock total.</li>
-            <li><strong>Deep</strong> — one 90-minute strict block.</li>
+            <li><strong>Quick.</strong> One 10-minute block, no chain.</li>
+            <li><strong>Pomodoro.</strong> 25-minute work blocks, four cycles, 5-minute breaks. 115 minutes wall-clock total.</li>
+            <li><strong>Deep.</strong> One 90-minute strict block.</li>
           </ul>
         </details>
 
@@ -119,55 +125,55 @@
           <summary>How do I create a custom mode?</summary>
           <ol>
             <li>On the Timer screen, scroll the modes row to the end and tap <strong>+ New</strong>.</li>
-            <li>Or open Settings → Modes → tap the + in the section header.</li>
+            <li>Or open <strong>Settings → Modes</strong> and tap the + in the section header.</li>
             <li>Set the name, duration, cycles, break length, icon, strict toggle, and app selection. Tap Save.</li>
           </ol>
-          <p>Custom modes appear in the row alongside the built-ins and can be reordered, edited, or deleted from Settings → Modes.</p>
+          <p>Custom modes appear alongside the built-ins and can be reordered, edited, or deleted from Settings → Modes.</p>
         </details>
 
         <details class="q">
-          <summary>Pomodoro: why does the timer show 25 minutes when the full chain is 115?</summary>
-          <p>The on-screen countdown shows the current work block, not the entire chain. The chain caption directly below the countdown ("4 cycles · 5m rest · 115m total") shows the full commitment. Notifications fire at every phase boundary so you know when to break and when to come back.</p>
+          <summary>The Pomodoro timer shows 25 minutes. Why not 115?</summary>
+          <p>The on-screen countdown shows the current work block. The chain caption directly below the countdown ("4 cycles · 5m rest · 115m total") shows the full commitment. Notifications fire at every transition so you always know what cycle you're in.</p>
         </details>
       </section>
 
-      <!-- Data ─────────────────────────────────────────────── -->
+      <!-- Data ─────────────────────────────────────────── -->
       <section class="faq-group" id="data">
         <h2>History &amp; data</h2>
 
         <details class="q">
           <summary>Where does my session history live?</summary>
-          <p>In Apple's SwiftData store, on your device. Holt has no server. There is no cloud copy. Uninstalling Holt removes all session history and configuration permanently.</p>
+          <p>In Apple's SwiftData store, on your device. There is no Holt server. There is no cloud copy. Uninstalling Holt removes all session history and configuration permanently.</p>
         </details>
 
         <details class="q">
-          <summary>Can I sync my data across devices?</summary>
-          <p>Not in v1. iCloud sync is on the roadmap. The v1 design intentionally keeps Holt single-device to minimise the data-handling surface area.</p>
+          <summary>Can I sync across devices?</summary>
+          <p>Not in v1. iCloud sync is on the roadmap; v1 keeps the data-handling surface deliberately small.</p>
         </details>
 
         <details class="q">
           <summary>How do I export my history?</summary>
-          <p>Export is not in v1. If you need to migrate your history off Holt, email <a href="mailto:hello@holt.app">hello@holt.app</a> — we'll prioritise the feature based on demand.</p>
+          <p>Export isn't in v1. If you need a way to move history off Holt, email and we'll prioritise the feature based on demand.</p>
         </details>
 
         <details class="q">
           <summary>How do I delete my data?</summary>
-          <p>Delete Holt from your iPhone. All session records, custom modes, Screen Time selections, and preferences are removed with the app. There is no Holt server-side copy.</p>
+          <p>Delete Holt from your iPhone. Session records, custom modes, Screen Time selection, and preferences all go with the app. There is no Holt server-side copy.</p>
         </details>
 
         <details class="q">
           <summary>Does Holt write to Apple Health?</summary>
-          <p>Only if you opt in. The toggle is under Settings → Health. When enabled, Holt writes completed sessions to Apple Health as Mindful Minutes. It is a one-way write — Holt never reads from Health. Revoke any time in iOS Settings → Privacy &amp; Security → Health → Holt.</p>
+          <p>Only if you opt in. Toggle Health on under Settings → Health, and Holt will write completed focus sessions to Apple Health as Mindful Minutes. The write is one-way. Revoke any time in iOS Settings → Privacy &amp; Security → Health → Holt.</p>
         </details>
       </section>
 
-      <!-- Billing ──────────────────────────────────────────── -->
+      <!-- Billing ─────────────────────────────────────── -->
       <section class="faq-group" id="billing">
         <h2>Billing</h2>
 
         <details class="q">
           <summary>What's included in the free tier?</summary>
-          <p>The Quick and Pomodoro modes are free, and the timer functionality works without payment. App blocking via Screen Time and the Deep strict mode require an unlock. The paywall appears the first time you attempt a paid feature.</p>
+          <p>Quick and Pomodoro modes run free, with no time limit and no session cap. The Pro upgrade adds app blocking via Screen Time, the Deep strict mode, custom modes, Apple Health integration, and Siri/Shortcuts.</p>
         </details>
 
         <details class="q">
@@ -181,73 +187,68 @@
             <li>iOS Settings → tap your name at the top.</li>
             <li>Subscriptions → Holt → Cancel Subscription.</li>
           </ol>
-          <p>Holt does not see or manage your subscription state directly; Apple handles all of it.</p>
+          <p>Holt does not manage subscription state directly; Apple handles all of it.</p>
         </details>
 
         <details class="q">
-          <summary>I bought lifetime — will it transfer to a new iPhone?</summary>
-          <p>Yes. On the new device, open the paywall and tap <strong>Restore Purchases</strong>. StoreKit will detect your prior purchase under the same Apple ID and unlock the app.</p>
+          <summary>I bought lifetime. Will it transfer to a new iPhone?</summary>
+          <p>Yes. On the new device, open the paywall and tap <strong>Restore Purchases</strong>. StoreKit detects your prior purchase under the same Apple ID and unlocks the app.</p>
         </details>
 
         <details class="q">
           <summary>How do I request a refund?</summary>
-          <p>Apple manages all refunds. Visit <a href="https://reportaproblem.apple.com" rel="noopener">reportaproblem.apple.com</a>, locate the Holt charge, and request a refund. We have no access to payment information and cannot process refunds from our side.</p>
+          <p>Apple manages all refunds. Visit <a href="https://reportaproblem.apple.com" rel="noopener">reportaproblem.apple.com</a>, find the Holt charge, and request a refund there. We have no access to your payment information and cannot process refunds directly.</p>
         </details>
       </section>
 
-      <!-- Troubleshooting ─────────────────────────────────── -->
+      <!-- Troubleshooting ───────────────────────────── -->
       <section class="faq-group" id="troubleshooting">
         <h2>Troubleshooting</h2>
 
         <details class="q">
-          <summary>The shield isn't blocking the app I selected.</summary>
+          <summary>The shield isn't blocking an app I selected.</summary>
           <ol>
-            <li>Confirm Screen Time permission is granted: iOS Settings → Holt → Screen Time should show <em>Allow Family Controls</em> on.</li>
-            <li>End the current session and start a new one — the shield is applied at session start.</li>
-            <li>Toggle the iOS Screen Time master setting off and back on (Settings → Screen Time).</li>
-            <li>Restart the iPhone. Screen Time occasionally wedges; a restart clears it.</li>
+            <li>Confirm Screen Time permission. iOS Settings → Holt → Screen Time should show <em>Allow Family Controls</em> on.</li>
+            <li>End the current session and start a new one. The shield is applied at session start.</li>
+            <li>Toggle iOS Screen Time off and back on (iOS Settings → Screen Time).</li>
+            <li>Restart the iPhone. Screen Time wedges occasionally; a restart clears it.</li>
           </ol>
           <p>If the issue persists, email us with your iOS version and iPhone model.</p>
-        </details>
-
-        <details class="q">
-          <summary>My session disappeared after I force-quit the app.</summary>
-          <p>It shouldn't have. Holt persists session state to disk at every transition and rehydrates on launch. If you re-open the app and the session is missing, please email <a href="mailto:hello@holt.app">hello@holt.app</a> with the approximate time the session started and which mode it was — we'll look at the rehydration logic.</p>
         </details>
 
         <details class="q">
           <summary>Live Activity isn't showing on my Lock Screen.</summary>
           <ol>
             <li>iOS Settings → Face ID &amp; Passcode → ensure Lock Screen access for notifications is allowed.</li>
-            <li>iOS Settings → Holt → Live Activities — toggle on.</li>
-            <li>End the active session and start a new one. Live Activities are spawned at session start; they don't retroactively attach.</li>
+            <li>iOS Settings → Holt → Live Activities. Toggle on.</li>
+            <li>End the active session and start a new one. Live Activities are spawned at session start and don't retroactively attach.</li>
           </ol>
         </details>
 
         <details class="q">
-          <summary>Notifications aren't firing when sessions end.</summary>
+          <summary>I'm not getting notifications when sessions end.</summary>
           <ol>
-            <li>iOS Settings → Notifications → Holt — confirm Allow Notifications is on.</li>
-            <li>If you denied the permission prompt on first launch, you'll need to enable it here manually.</li>
+            <li>iOS Settings → Notifications → Holt. Confirm Allow Notifications is on.</li>
+            <li>If you denied the prompt on first launch, you'll need to enable it here manually.</li>
             <li>Force-quit and reopen Holt to re-register the notification scheduler.</li>
           </ol>
         </details>
 
         <details class="q">
           <summary>The widget isn't updating.</summary>
-          <p>Holt asks WidgetKit to refresh after every session state change. iOS controls how often widget timelines actually run. If your widget is stuck, remove and re-add it from the Home Screen — that forces a fresh timeline.</p>
+          <p>Holt asks WidgetKit to refresh after every session state change, but iOS controls how often widget timelines actually run. If your widget is stuck, remove and re-add it from the Home Screen. That forces a fresh timeline.</p>
         </details>
 
         <details class="q">
-          <summary>I found a bug.</summary>
-          <p>Email <a href="mailto:hello@holt.app?subject=Bug%20report">hello@holt.app</a> with iOS version, iPhone model, and a description of what you were doing. Screenshots are gold. One person reads everything; expect a reply within a day or two.</p>
+          <summary>Found a bug.</summary>
+          <p>Email <a href="mailto:hello@holt.app?subject=Bug%20report">hello@holt.app</a> with iOS version, iPhone model, and a description of what you were doing when it broke. Screenshots are gold. One person reads everything; expect a reply within a day or two.</p>
         </details>
       </section>
 
       <h2 id="contact">Contact</h2>
       <div class="callout">
-        <strong>Need a human?</strong>
-        Write to <a href="mailto:hello@holt.app">hello@holt.app</a>. Real address, real reply, not a ticket number.
+        <strong>One inbox, one human.</strong>
+        Write to <a href="mailto:hello@holt.app">hello@holt.app</a> for support, bug reports, refund questions, and anything else.
       </div>
     </article>
 
@@ -256,6 +257,7 @@
   <footer class="foot">
     <a href="index.html">Home</a>
     <a href="privacy.html">Privacy</a>
+    <a href="mailto:hello@holt.app">Contact</a>
     <span class="foot__right">Fen keeps watch.</span>
   </footer>
 </main>
