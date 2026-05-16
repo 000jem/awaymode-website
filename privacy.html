@@ -4,94 +4,161 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta name="theme-color" content="#0C0A08" />
-<title>Privacy — Holt</title>
-<meta name="description" content="Holt collects no personal data. No accounts, no analytics, no servers. Everything stays on your phone." />
+<title>Privacy Policy — Holt</title>
+<meta name="description" content="Holt collects no personal data. No accounts, no analytics, no servers." />
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90' font-family='serif' fill='%23E07856'%3EH%3C/text%3E%3C/svg%3E" />
 <link rel="stylesheet" href="assets/style.css" />
 </head>
 <body>
-  <main class="page page--narrow">
-    <a href="index.html" class="wordmark">Holt</a>
 
-    <h1>Privacy</h1>
-    <p class="lede">Holt collects nothing. There is nothing for us to lose because there is nothing for us to hold.</p>
-
-    <div class="callout">
-      <strong>The short version.</strong>
-      Holt has no servers. We don't have an account system. We don't run analytics.
-      We don't ship usage data to anyone. Everything the app remembers about you
-      lives only on your phone, and uninstalling Holt removes it.
-    </div>
-
-    <h2>What stays on your device</h2>
-    <p>
-      Holt keeps a small amount of data locally so the app can do its job. None of
-      it ever leaves your phone unless you explicitly choose to share it via iOS.
-    </p>
-    <ul>
-      <li><strong>Session history.</strong> The length of each sit, whether it completed or you stepped away, and the mode you used. Stored in Apple's on-device SwiftData store.</li>
-      <li><strong>Your modes and preferences.</strong> The custom modes you've made, which apps you've selected to block, and your settings choices.</li>
-      <li><strong>Screen Time selection.</strong> When you pick apps to block, Apple gives Holt an opaque token that refers to those apps. We never see the app names. The token only works on your device.</li>
-    </ul>
-
-    <h2>What we don't collect</h2>
-    <ul>
-      <li>No name, email, phone number, or account.</li>
-      <li>No analytics. No usage metrics. No crash reports that contain your data.</li>
-      <li>No advertising identifiers. No tracking across apps or websites.</li>
-      <li>No location data.</li>
-      <li>No contacts, calendar, photos, or microphone access.</li>
-    </ul>
-
-    <h2>Apple Health</h2>
-    <p>
-      If you opt in, Holt will write completed focus sessions to Apple Health as
-      Mindful Minutes. This is one-way: Holt writes to Health, Holt does not read
-      from Health. You can revoke this in iOS Settings → Privacy & Security → Health
-      at any time, and Holt will keep working without it.
-    </p>
-
-    <h2>Apple's role</h2>
-    <p>
-      If you download Holt from the App Store or subscribe through it, Apple handles
-      that transaction. Apple's own privacy policy covers that interaction, not us.
-      We never see your payment details.
-    </p>
-
-    <h2>Subscriptions and purchases</h2>
-    <p>
-      Holt may offer in-app purchases through Apple's StoreKit. Apple processes the
-      payment and returns an opaque receipt to the device confirming what you bought.
-      Holt reads this receipt on your phone to unlock paid modes. The receipt does not
-      contain your name, email, or payment information.
-    </p>
-
-    <h2>Children</h2>
-    <p>
-      Holt is rated 4+. It collects no personal data, so it's safe for any age. We
-      don't knowingly collect data from anyone, including children.
-    </p>
-
-    <h2>Changes</h2>
-    <p>
-      If this policy ever changes in a way that affects how your data is handled, the
-      change will be noted here and in the next app update's release notes. Because we
-      don't have an email list, there's no other way we can reach you, and we like it
-      that way.
-    </p>
-
-    <h2>Contact</h2>
-    <p>
-      Questions about privacy can be sent to
-      <a href="mailto:hello@holt.app">hello@holt.app</a>. We'll respond from a real
-      address, not an automation.
-    </p>
-
-    <footer class="foot">
+<nav class="nav">
+  <div class="container nav__row">
+    <a href="index.html" class="nav__brand">Holt</a>
+    <div class="nav__links">
       <a href="index.html">Home</a>
+      <a href="privacy.html" aria-current="page">Privacy</a>
       <a href="support.html">Support</a>
-      <span class="right">Updated November 2026</span>
-    </footer>
-  </main>
+      <a class="nav__cta" href="#">App Store</a>
+    </div>
+  </div>
+</nav>
+
+<main class="container">
+  <div class="doc">
+
+    <aside class="doc__toc" aria-label="Table of contents">
+      <h4>On this page</h4>
+      <ol>
+        <li><a href="#summary">Summary</a></li>
+        <li><a href="#stored">Data stored on your device</a></li>
+        <li><a href="#not-collected">Data we do not collect</a></li>
+        <li><a href="#third-parties">Third parties</a></li>
+        <li><a href="#health">Apple Health</a></li>
+        <li><a href="#purchases">Purchases and subscriptions</a></li>
+        <li><a href="#children">Children</a></li>
+        <li><a href="#changes">Changes to this policy</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ol>
+    </aside>
+
+    <article class="doc__body">
+      <p class="eyebrow">Legal</p>
+      <h1>Privacy Policy</h1>
+      <p class="doc__meta">Last updated November 14, 2026</p>
+
+      <h2 id="summary">Summary</h2>
+      <p>
+        Holt is designed so that we never have access to your data. The app
+        runs entirely on your iPhone. We do not operate any server that
+        receives your activity, identity, or content. There are no user
+        accounts. There is no analytics SDK. There is no tracking.
+      </p>
+      <p>
+        The App Store privacy nutrition label for Holt declares
+        <strong>Data Not Collected</strong>. This policy explains what that means in
+        practice and where the small amount of on-device data lives.
+      </p>
+
+      <h2 id="stored">Data stored on your device</h2>
+      <p>
+        Holt persists the following information locally, using Apple's SwiftData
+        framework. None of it is transmitted off your device by Holt.
+      </p>
+      <ul>
+        <li><strong>Session history.</strong> The start time, planned length, actual length, completion status, and mode of each focus session.</li>
+        <li><strong>Focus modes.</strong> The custom modes you create — names, durations, cycle counts, break lengths, and the iOS Screen Time selection associated with each.</li>
+        <li><strong>App preferences.</strong> Settings such as default mode, theme, notification toggles, and onboarding completion.</li>
+        <li><strong>Screen Time tokens.</strong> When you select apps, categories, or websites to block, iOS returns opaque <em>activity tokens</em>. Holt stores these tokens to re-apply your selection at the start of each session. Tokens cannot be used to read app names, look up apps, or identify the device. They only function on the device that issued them.</li>
+      </ul>
+      <p>
+        All of the above is removed if you delete Holt from your iPhone. There
+        is no Holt server-side copy because there is no Holt server.
+      </p>
+
+      <h2 id="not-collected">Data we do not collect</h2>
+      <p>Holt does not collect, transmit, or have access to:</p>
+      <ul>
+        <li>Your name, email address, phone number, or any account credentials.</li>
+        <li>Device identifiers, advertising identifiers, or any IDFA.</li>
+        <li>Usage analytics, telemetry, crash reports containing user content, or session metrics.</li>
+        <li>Your location, IP address, contacts, calendar, photos, microphone, or camera.</li>
+        <li>The list of apps installed on your device.</li>
+        <li>The contents of any app you have asked Holt to block.</li>
+      </ul>
+
+      <h2 id="third-parties">Third parties</h2>
+      <p>
+        Holt does not embed any third-party analytics, advertising, attribution,
+        or A/B testing SDKs. The only Apple frameworks Holt interacts with are:
+      </p>
+      <ul>
+        <li><strong>FamilyControls / ManagedSettings / DeviceActivity</strong> — Apple's Screen Time framework, used to apply the app shield. Selection tokens are stored on-device and never leave it.</li>
+        <li><strong>StoreKit 2</strong> — Apple's in-app purchase framework, used for the subscription and lifetime purchase. Apple processes payment; Holt receives only an on-device receipt.</li>
+        <li><strong>HealthKit</strong> — only if you grant access. See <a href="#health">Apple Health</a> below.</li>
+        <li><strong>UserNotifications</strong> — for the session-end and phase-transition alerts. Notifications are scheduled locally and fired by iOS; no server is involved.</li>
+        <li><strong>WidgetKit, ActivityKit, AppIntents</strong> — for widgets, Live Activities, and Shortcuts. These run entirely on-device.</li>
+      </ul>
+
+      <h2 id="health">Apple Health</h2>
+      <p>
+        If you opt in via Settings, Holt writes completed focus sessions to
+        Apple Health as <em>Mindful Minutes</em>. This integration is one-way: Holt
+        writes; Holt does not read. The permission is requested through Apple's
+        standard system dialog and can be revoked at any time in
+        <strong>iOS Settings → Privacy &amp; Security → Health → Holt</strong>.
+        Revoking the permission has no effect on Holt's core functionality.
+      </p>
+
+      <h2 id="purchases">Purchases and subscriptions</h2>
+      <p>
+        Holt offers optional in-app purchases through Apple's StoreKit. When
+        you make a purchase, Apple handles payment processing and returns an
+        opaque receipt to your device confirming what you bought. Holt reads
+        this receipt on-device to unlock paid features. The receipt does not
+        contain your name, email, payment information, or any other personal
+        data.
+      </p>
+      <p>
+        Subscription cancellation, refunds, and billing inquiries are managed
+        through your Apple ID. Holt has no access to your payment details and
+        cannot process refunds. For refunds, visit
+        <a href="https://reportaproblem.apple.com" rel="noopener">reportaproblem.apple.com</a>.
+      </p>
+
+      <h2 id="children">Children</h2>
+      <p>
+        Holt is rated 4+ on the App Store. The app collects no personal
+        information from any user, including children under 13. Holt is
+        compliant with COPPA and the GDPR's requirements regarding children's
+        data because there is no children's data — or any data — being
+        collected.
+      </p>
+
+      <h2 id="changes">Changes to this policy</h2>
+      <p>
+        If we update this policy in a way that affects how data is handled, the
+        change will be reflected on this page with a new <em>last updated</em>
+        date, and a brief summary will appear in the app's release notes for
+        the next version. Because there is no email list, there is no
+        out-of-band channel through which we could notify you.
+      </p>
+
+      <h2 id="contact">Contact</h2>
+      <p>
+        Questions about this policy or about Holt's privacy practices:
+        <a href="mailto:hello@holt.app">hello@holt.app</a>. Replies come from a
+        person, not an automation.
+      </p>
+    </article>
+
+  </div>
+
+  <footer class="foot">
+    <a href="index.html">Home</a>
+    <a href="support.html">Support</a>
+    <span class="foot__right">Updated November 2026</span>
+  </footer>
+</main>
+
 </body>
 </html>

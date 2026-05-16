@@ -5,70 +5,191 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta name="theme-color" content="#0C0A08" />
 <title>Holt — a quiet place to focus</title>
-<meta name="description" content="Holt is a quiet focus app for iOS. Block apps, sit with the work, and disappear for an hour. No accounts. No analytics. Just the work." />
+<meta name="description" content="An iPhone focus app that actually blocks distracting apps with Screen Time. No accounts, no analytics, no servers." />
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90' font-family='serif' fill='%23E07856'%3EH%3C/text%3E%3C/svg%3E" />
 <link rel="stylesheet" href="assets/style.css" />
 </head>
 <body>
-  <main class="page">
-    <a href="index.html" class="wordmark">Holt</a>
 
-    <section class="hero">
-      <h1>A quiet place<br>to <span class="ember">focus</span>.</h1>
-      <p class="tagline">Disappear into the work. Fen keeps watch.</p>
-      <a class="cta" href="#">Coming to the App Store</a>
-    </section>
-
-    <p>
-      Holt is a focus app for iOS. You pick a length of time, choose what to
-      shut out, and sit. The apps you flagged disappear. The room goes quiet.
-      When the time is up, Fen lets you know.
-    </p>
-
-    <p class="secondary">
-      No accounts. No analytics. No tree to plant or coach to please.
-      Everything stays on your phone.
-    </p>
-
-    <div class="feature-grid">
-      <div class="feature">
-        <h3>Quiet by design</h3>
-        <p>No streaks dying, no shame loops, no celebratory popups. Just a session, then the next. Progress is felt, not announced.</p>
-      </div>
-      <div class="feature">
-        <h3>Real app blocking</h3>
-        <p>Uses Apple's Screen Time. The apps you pick are gone for the length of the sit — not greyed out, gone. Strict mode holds the latch.</p>
-      </div>
-      <div class="feature">
-        <h3>Private by default</h3>
-        <p>No servers, no telemetry. Your session history lives in SwiftData on your device. Apple's privacy nutrition label says it all.</p>
-      </div>
-      <div class="feature">
-        <h3>Built for iOS</h3>
-        <p>Live Activities, Lock Screen widgets, Mindful Minutes, Shortcuts. The full native stack. No web wrapper.</p>
-      </div>
-    </div>
-
-    <h2>What you get</h2>
-    <ul>
-      <li><strong>Quick</strong> — a single 10-minute sit, for the in-between moments.</li>
-      <li><strong>Pomodoro</strong> — the classic 25/5 chain, four times through.</li>
-      <li><strong>Deep</strong> — 90 minutes, strict. The latch stays shut.</li>
-      <li><strong>Custom</strong> — make your own. Pick the minutes, pick the apps.</li>
-    </ul>
-
-    <h2>About Fen</h2>
-    <p>
-      Fen is a fennec fox. He's calm, capable, and in his prime. He doesn't
-      cheer or shame. He keeps watch while you work, and notices when you bail.
-      That's all.
-    </p>
-
-    <footer class="foot">
+<nav class="nav">
+  <div class="container nav__row">
+    <a href="index.html" class="nav__brand">Holt</a>
+    <div class="nav__links">
+      <a href="#what">What it is</a>
+      <a href="#modes">Modes</a>
       <a href="privacy.html">Privacy</a>
       <a href="support.html">Support</a>
-      <span class="right">A holt is a fox's den.</span>
-    </footer>
-  </main>
+      <a class="nav__cta" href="#">App Store</a>
+    </div>
+  </div>
+</nav>
+
+<main>
+
+<!-- Hero ────────────────────────────────────────────────────── -->
+<section class="container">
+  <div class="hero">
+    <p class="eyebrow">Focus app for iPhone</p>
+    <h1>A quiet place<br/>to <span class="ember">focus</span>.</h1>
+    <p class="hero__sub">Disappear into the work. Fen keeps watch.</p>
+    <p class="hero__body">
+      Pick a length of time. Pick what to shut out. Hit start. The apps you flagged
+      are blocked by iOS Screen Time for the duration of the session, and Holt
+      stays out of your way until the timer ends.
+    </p>
+    <div class="hero__actions">
+      <a class="btn" href="#">Get Holt on the App Store</a>
+      <a class="btn btn--ghost" href="#what">How it works</a>
+    </div>
+  </div>
+</section>
+
+<!-- What it is ─────────────────────────────────────────────── -->
+<section class="section" id="what">
+  <div class="container">
+    <div class="section__head">
+      <p class="eyebrow">What it is</p>
+      <h2>A focus timer with a real shield behind it.</h2>
+      <p>
+        Most focus apps run a timer and hope you don't open Twitter. Holt uses
+        Apple's Screen Time framework to actually hide the apps you nominated for
+        the length of the session. The shield holds until the timer ends; in
+        strict mode, it holds even if you change your mind.
+      </p>
+    </div>
+
+    <div class="features">
+      <div class="feature">
+        <span class="feature__num">01 / Blocking</span>
+        <h3>Screen Time, not a fake overlay.</h3>
+        <p>
+          Holt uses Family Controls to shield apps at the OS level. Tap a blocked
+          app during a session and iOS hands back a system shield, not a Holt
+          modal. The same protection Apple ships in Screen Time, scoped to your
+          session.
+        </p>
+      </div>
+
+      <div class="feature">
+        <span class="feature__num">02 / Privacy</span>
+        <h3>Zero accounts, zero analytics, zero servers.</h3>
+        <p>
+          Session history, mode configurations, and your Screen Time selection
+          live in SwiftData on the device. The App Store privacy nutrition label
+          declares Data Not Collected. Uninstalling the app removes everything.
+        </p>
+      </div>
+
+      <div class="feature">
+        <span class="feature__num">03 / Native</span>
+        <h3>Built for iOS, not ported.</h3>
+        <p>
+          Live Activities on the Lock Screen and Dynamic Island. Lock Screen
+          widgets. Mindful Minutes in Apple Health, if you opt in. Shortcuts and
+          App Intents for Siri. Force-quit recovery — kill the app mid-session
+          and it picks back up where you were.
+        </p>
+      </div>
+
+      <div class="feature">
+        <span class="feature__num">04 / Pomodoro</span>
+        <h3>The chain math is correct.</h3>
+        <p>
+          A 25 × 4 Pomodoro is 115 minutes wall-clock with breaks, not 100.
+          Holt notifies you at every phase boundary, logs work blocks only to
+          history, and re-schedules the chain correctly if you pause or the
+          app gets killed mid-cycle.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Modes ──────────────────────────────────────────────────── -->
+<section class="section" id="modes">
+  <div class="container">
+    <div class="section__head">
+      <p class="eyebrow">Modes</p>
+      <h2>Four shapes of sit.</h2>
+      <p>
+        Three built-in modes covering the most common commitments, plus a
+        fourth for anything else. Each is one tap from the home screen.
+      </p>
+    </div>
+
+    <div class="modes">
+      <div class="mode-row">
+        <div class="mode-row__name">Quick</div>
+        <div class="mode-row__spec">10 min</div>
+        <p class="mode-row__desc">One block. For the in-between moments — a hard email, an inbox sweep, a single design pass.</p>
+      </div>
+
+      <div class="mode-row">
+        <div class="mode-row__name">Pomodoro</div>
+        <div class="mode-row__spec">25 × 4 + 5m</div>
+        <p class="mode-row__desc">Classic Cirillo chain. 115 minutes wall-clock with three breaks. Phase notifications at every transition.</p>
+      </div>
+
+      <div class="mode-row">
+        <div class="mode-row__name">Deep</div>
+        <div class="mode-row__spec">90 min · strict</div>
+        <p class="mode-row__desc">Strict mode. The shield holds for the entire session — you cannot end it early. For the day the work has to land.</p>
+      </div>
+
+      <div class="mode-row">
+        <div class="mode-row__name">Custom</div>
+        <div class="mode-row__spec">your call</div>
+        <p class="mode-row__desc">Pick the minutes, the apps, the cycles, and the break length. Save as many as you need.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- What it doesn't do ─────────────────────────────────────── -->
+<section class="section">
+  <div class="container">
+    <div class="section__head">
+      <p class="eyebrow">What it doesn't do</p>
+      <h2>A few things on purpose.</h2>
+      <p>Worth knowing before you download, so the absence isn't a surprise.</p>
+    </div>
+
+    <div class="nope">
+      <div class="nope__item">
+        <strong>No streaks</strong>
+        Nothing dies if you skip a day. Consistency is its own reward; we don't need to threaten you about it.
+      </div>
+      <div class="nope__item">
+        <strong>No social features</strong>
+        No leaderboards, no shared trees, no friend invites. Focus is a solo act.
+      </div>
+      <div class="nope__item">
+        <strong>No cloud sync (v1)</strong>
+        Your history lives on this device. iCloud sync is on the roadmap; v1 keeps the surface small.
+      </div>
+      <div class="nope__item">
+        <strong>No iPad or Mac (v1)</strong>
+        iPhone only at launch. iPad is a likely v1.1 if there's demand.
+      </div>
+      <div class="nope__item">
+        <strong>No ads, ever</strong>
+        Holt is paid software or it isn't anything. No ad SDK will ever live in this binary.
+      </div>
+      <div class="nope__item">
+        <strong>No AI coach</strong>
+        No suggestions about what you should be focusing on. The mode is the mode; the work is the work.
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="container foot">
+  <a href="privacy.html">Privacy</a>
+  <a href="support.html">Support</a>
+  <span class="foot__right">A holt is a fox's den.</span>
+</footer>
+
+</main>
+
 </body>
 </html>
