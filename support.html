@@ -3,17 +3,17 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta name="theme-color" content="#0C0A08" />
-<title>Support — Holt</title>
+<meta name="theme-color" content="#05070D" />
+<title>Support. Awaymode</title>
 <meta name="description" content="Help with Screen Time permissions, blocking, modes, subscriptions, and troubleshooting." />
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%23E07856'/%3E%3Ctext x='50' y='72' font-size='62' font-family='serif' font-weight='600' text-anchor='middle' fill='%23FFF1D6'%3EH%3C/text%3E%3C/svg%3E" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%2305070D'/%3E%3Ctext x='50' y='62' font-size='28' font-family='Plus Jakarta Sans, sans-serif' font-weight='700' text-anchor='middle' fill='%23F8FAFC' letter-spacing='-1'%3Ea%3Ctspan font-weight='300' fill='%237DD3FC'%3E/%3C/tspan%3Em%3C/text%3E%3C/svg%3E" />
 <link rel="stylesheet" href="assets/style.css" />
 </head>
 <body>
 
 <nav class="nav">
   <div class="container nav__row">
-    <a href="index.html" class="nav__brand">Holt</a>
+    <a href="index.html" class="nav__brand">away<span class="slash">/</span>mode</a>
     <div class="nav__links">
       <a href="index.html">Home</a>
       <a href="privacy.html">Privacy</a>
@@ -44,7 +44,7 @@
       <h1>Support</h1>
       <p class="doc__meta">Common questions, plus an email at the bottom. One inbox reads everything.</p>
 
-      <!-- Getting started ─────────────────────────────────── -->
+      <!-- Getting started -->
       <section class="faq-group" id="start">
         <h2>Getting started</h2>
         <p class="faq-group__hint">First-launch flow and how a session works.</p>
@@ -52,98 +52,108 @@
         <details class="q">
           <summary>How do I start my first session?</summary>
           <ol>
-            <li>Tap a mode tile near the bottom of the Timer screen: Quick, Pomodoro, or Deep.</li>
-            <li>Tap the timer disc in the centre, or tap Fen.</li>
-            <li>The session begins. Any apps you've configured for that mode disappear behind the iOS shield.</li>
+            <li>Pick a mode in the row above the Lock In button: Flow, Focus, Deep, or one you've made yourself.</li>
+            <li>Tap <strong>Lock In</strong>.</li>
+            <li>The session begins. Any apps you've configured for that mode disappear behind the iOS shield until the timer ends.</li>
           </ol>
           <p>If the mode you picked has app blocking configured, iOS will ask for Screen Time permission the first time. Approve to start; decline to run the session as a timer only.</p>
         </details>
 
         <details class="q">
-          <summary>Tap Fen or tap the timer. Is there a difference?</summary>
-          <p>No. Both start the same session. Two tap targets exist because users instinctively reach for the timer or the mascot, and either should work.</p>
-        </details>
-
-        <details class="q">
           <summary>Where do notifications come from?</summary>
-          <p>Locally. Holt schedules them through Apple's UserNotifications framework the moment a session starts, so they fire even if the app is backgrounded or force-quit. For chained modes such as Pomodoro, every phase boundary gets its own alert: "Break time" at each work-end, "Back to it" at each break-end, and "Done" when the chain finishes.</p>
+          <p>Locally. awaymode schedules them through Apple's UserNotifications framework the moment a session starts, so they fire even if the app is backgrounded or force-quit. For chained modes like Focus, every phase boundary gets its own alert: "break time" at each work-end, "back to it" at each break-end, and "done. time's yours." when the chain finishes.</p>
         </details>
 
         <details class="q">
-          <summary>What happens if I force-quit Holt during a session?</summary>
-          <p>Nothing bad. Holt writes the session state to disk at every transition. When you reopen the app it picks up where you left off, and the Screen Time shield stays up in the meantime. Force-quitting does not end a session.</p>
+          <summary>What happens if I force-quit awaymode during a session?</summary>
+          <p>Nothing bad. awaymode writes the session state to disk at every transition. When you reopen the app it picks up where you left off, and the Screen Time shield stays up the whole time. Force-quitting does not end a session.</p>
+        </details>
+
+        <details class="q">
+          <summary>Can I run awaymode on iPad?</summary>
+          <p>Not in v1. iPhone only for now. iPad is on the v2 roadmap.</p>
         </details>
       </section>
 
-      <!-- App blocking ──────────────────────────────────── -->
+      <!-- App blocking -->
       <section class="faq-group" id="blocking">
         <h2>App blocking</h2>
         <p class="faq-group__hint">Screen Time integration and strict mode.</p>
 
         <details class="q">
-          <summary>Why does Holt ask for Screen Time access?</summary>
-          <p>Because the actual blocking is done by iOS, not by Holt. The FamilyControls framework powers Apple's own Screen Time feature, and Holt uses it to apply a shield over the apps you flagged. Without that permission Holt can still run a timer, but it cannot block anything.</p>
-          <p>The framework is designed for privacy: Holt sees opaque tokens, not app names. We cannot read which apps are on your phone.</p>
+          <summary>Why does awaymode ask for Screen Time access?</summary>
+          <p>Because the blocking is done by iOS, not by awaymode. Apple's FamilyControls framework powers Screen Time, and awaymode uses it to shield the apps you flagged. Without permission awaymode still runs a timer. It just can't block.</p>
+          <p>The framework is built for privacy: awaymode sees opaque tokens, not app names. We can't read which apps are on your phone.</p>
         </details>
 
         <details class="q">
-          <summary>How do I select apps to block?</summary>
+          <summary>How do I select what to block?</summary>
           <ol>
-            <li>Open <strong>Settings → Modes</strong> in Holt.</li>
+            <li>Open <strong>Settings → Modes</strong> in awaymode.</li>
             <li>Tap the mode you want to configure.</li>
             <li>Tap <strong>Block apps</strong>.</li>
-            <li>iOS presents its Screen Time picker. Pick apps, categories, or websites and tap Done.</li>
+            <li>iOS presents its Screen Time picker. Pick apps or categories and tap Done.</li>
           </ol>
-          <p>Each mode keeps its own selection. Pomodoro can shield social media while Deep shields everything but your editor.</p>
+          <p>Each mode keeps its own selection. Focus can shield social media while Deep shields everything but your editor.</p>
+        </details>
+
+        <details class="q">
+          <summary>I picked a category. Why does it count as 1?</summary>
+          <p>Apple doesn't tell us how many apps live inside a category. Categories are opaque tokens for privacy. iOS still shields every app in the category at the OS level; we just can't show you the count. Tap the "X blocked" pill above Lock In to see the actual selection awaymode is holding.</p>
         </details>
 
         <details class="q">
           <summary>What's special about Deep mode?</summary>
-          <p>Deep is strict. Once started, the End button is disabled and the shield holds until the timer runs out. Other modes let you end the session early via a confirmation dialog. Use Deep when you genuinely want the option to bail removed.</p>
+          <p>Deep is strict. Once started, the end-session button is disabled and the shield holds until the timer runs out. Other modes let you end early via a confirmation. Use Deep when you genuinely want the option to bail removed.</p>
         </details>
 
         <details class="q">
           <summary>Can I get around the strict shield?</summary>
-          <p>Not from inside Holt. The shield is enforced at the OS level. You could uninstall the app, but iOS continues to apply Screen Time restrictions briefly after uninstall, and your session record is permanently lost. The polite answer is: don't start a strict session unless you mean it.</p>
+          <p>Not from inside awaymode. The shield is enforced by iOS. You could uninstall the app, but iOS keeps Screen Time restrictions briefly after uninstall, and your session record is permanently lost. The polite answer: don't start a strict session unless you mean it.</p>
+        </details>
+
+        <details class="q">
+          <summary>Can awaymode block itself?</summary>
+          <p>No. We strip awaymode's own app token from any selection at picker close and at session start. Apple's picker shows every installed app including the host, so without this safeguard a user could accidentally shield awaymode mid-session and lock themselves out of the app that ends the session.</p>
         </details>
       </section>
 
-      <!-- Modes ─────────────────────────────────────────── -->
+      <!-- Modes -->
       <section class="faq-group" id="modes">
         <h2>Modes</h2>
 
         <details class="q">
           <summary>What are the built-in modes?</summary>
           <ul>
-            <li><strong>Quick.</strong> One 10-minute block, no chain.</li>
-            <li><strong>Pomodoro.</strong> 25-minute work blocks, four cycles, 5-minute breaks. 115 minutes wall-clock total.</li>
-            <li><strong>Deep.</strong> One 90-minute strict block.</li>
+            <li><strong>Flow.</strong> One 10-minute block, no chain. The between-meetings option. Free.</li>
+            <li><strong>Focus.</strong> Classic pomodoro chain. 25 min work, 5 min rest, four rounds. 115 min wall-clock total. Free.</li>
+            <li><strong>Deep.</strong> One 90-minute strict block. No early end. Pro.</li>
           </ul>
         </details>
 
         <details class="q">
           <summary>How do I create a custom mode?</summary>
           <ol>
-            <li>On the Timer screen, scroll the modes row to the end and tap <strong>+ New</strong>.</li>
+            <li>On the Timer screen, scroll the modes row to the end and tap <strong>+</strong>.</li>
             <li>Or open <strong>Settings → Modes</strong> and tap the + in the section header.</li>
             <li>Set the name, duration, cycles, break length, icon, strict toggle, and app selection. Tap Save.</li>
           </ol>
-          <p>Custom modes appear alongside the built-ins and can be reordered, edited, or deleted from Settings → Modes.</p>
+          <p>Custom modes appear alongside the built-ins and can be reordered, edited, or deleted from Settings → Modes. Custom modes are Pro.</p>
         </details>
 
         <details class="q">
-          <summary>The Pomodoro timer shows 25 minutes. Why not 115?</summary>
-          <p>The on-screen countdown shows the current work block. The chain caption directly below the countdown ("4 cycles · 5m rest · 115m total") shows the full commitment. Notifications fire at every transition so you always know what cycle you're in.</p>
+          <summary>The Focus timer shows 25 min. Why not 115?</summary>
+          <p>The on-screen countdown shows the current work block. The descriptor below ("4 rounds · 5 min rest" / "115 min wall clock") shows the full commitment. Notifications fire at every transition so you always know what round you're in.</p>
         </details>
       </section>
 
-      <!-- Data ─────────────────────────────────────────── -->
+      <!-- Data -->
       <section class="faq-group" id="data">
         <h2>History &amp; data</h2>
 
         <details class="q">
           <summary>Where does my session history live?</summary>
-          <p>In Apple's SwiftData store, on your device. There is no Holt server. There is no cloud copy. Uninstalling Holt removes all session history and configuration permanently.</p>
+          <p>In Apple's SwiftData store, on your device. There is no awaymode server. There is no cloud copy. Uninstalling awaymode removes all session history and configuration permanently.</p>
         </details>
 
         <details class="q">
@@ -153,62 +163,62 @@
 
         <details class="q">
           <summary>How do I export my history?</summary>
-          <p>Export isn't in v1. If you need a way to move history off Holt, email and we'll prioritise the feature based on demand.</p>
+          <p>Export isn't in v1. If you need a way to move history off awaymode, email and we'll prioritise the feature based on demand.</p>
         </details>
 
         <details class="q">
           <summary>How do I delete my data?</summary>
-          <p>Delete Holt from your iPhone. Session records, custom modes, Screen Time selection, and preferences all go with the app. There is no Holt server-side copy.</p>
+          <p>Delete awaymode from your iPhone. Session records, custom modes, Screen Time selection, and preferences all go with the app. There is no awaymode server-side copy.</p>
         </details>
 
         <details class="q">
-          <summary>Does Holt write to Apple Health?</summary>
-          <p>Only if you opt in. Toggle Health on under Settings → Health, and Holt will write completed focus sessions to Apple Health as Mindful Minutes. The write is one-way. Revoke any time in iOS Settings → Privacy &amp; Security → Health → Holt.</p>
+          <summary>Does awaymode write to Apple Health?</summary>
+          <p>Only if you opt in. Toggle Health on under Settings → Health, and awaymode will write completed focus sessions to Apple Health as Mindful Minutes. The write is one-way. Revoke any time in iOS Settings → Privacy &amp; Security → Health → awaymode.</p>
         </details>
       </section>
 
-      <!-- Billing ─────────────────────────────────────── -->
+      <!-- Billing -->
       <section class="faq-group" id="billing">
         <h2>Billing</h2>
 
         <details class="q">
-          <summary>What's included in the free tier?</summary>
-          <p>Quick and Pomodoro modes run free, with no time limit and no session cap. The Pro upgrade adds app blocking via Screen Time, the Deep strict mode, custom modes, Apple Health integration, and Siri/Shortcuts.</p>
+          <summary>What's free?</summary>
+          <p>Flow and Focus run free. With full app and category blocking included. Pro adds the Deep strict mode, custom modes, Apple Health integration, and Siri/Shortcuts.</p>
         </details>
 
         <details class="q">
           <summary>How are subscriptions billed?</summary>
-          <p>Through your Apple ID. Monthly and annual subscriptions auto-renew unless cancelled at least 24 hours before the period ends. The annual plan includes a 7-day free trial. Lifetime is a one-time purchase with no renewal.</p>
+          <p>Through your Apple ID. Monthly is $6.99/mo. Annual is $34.99/yr after a 7-day free trial. Both auto-renew unless cancelled at least 24 hours before the period ends. Lifetime is $89 one-time, no renewal.</p>
         </details>
 
         <details class="q">
           <summary>How do I cancel?</summary>
           <ol>
             <li>iOS Settings → tap your name at the top.</li>
-            <li>Subscriptions → Holt → Cancel Subscription.</li>
+            <li>Subscriptions → awaymode → Cancel Subscription.</li>
           </ol>
-          <p>Holt does not manage subscription state directly; Apple handles all of it.</p>
+          <p>awaymode doesn't manage subscription state directly; Apple handles all of it.</p>
         </details>
 
         <details class="q">
           <summary>I bought lifetime. Will it transfer to a new iPhone?</summary>
-          <p>Yes. On the new device, open the paywall and tap <strong>Restore Purchases</strong>. StoreKit detects your prior purchase under the same Apple ID and unlocks the app.</p>
+          <p>Yes. On the new device, open the paywall and tap <strong>Restore</strong>. StoreKit detects your prior purchase under the same Apple ID and unlocks the app.</p>
         </details>
 
         <details class="q">
           <summary>How do I request a refund?</summary>
-          <p>Apple manages all refunds. Visit <a href="https://reportaproblem.apple.com" rel="noopener">reportaproblem.apple.com</a>, find the Holt charge, and request a refund there. We have no access to your payment information and cannot process refunds directly.</p>
+          <p>Apple manages all refunds. Visit <a href="https://reportaproblem.apple.com" rel="noopener">reportaproblem.apple.com</a>, find the awaymode charge, and request a refund there. We have no access to your payment information and cannot process refunds directly.</p>
         </details>
       </section>
 
-      <!-- Troubleshooting ───────────────────────────── -->
+      <!-- Troubleshooting -->
       <section class="faq-group" id="troubleshooting">
         <h2>Troubleshooting</h2>
 
         <details class="q">
           <summary>The shield isn't blocking an app I selected.</summary>
           <ol>
-            <li>Confirm Screen Time permission. iOS Settings → Holt → Screen Time should show <em>Allow Family Controls</em> on.</li>
+            <li>Confirm Screen Time permission. iOS Settings → awaymode → Screen Time should show <em>Allow Family Controls</em> on.</li>
             <li>End the current session and start a new one. The shield is applied at session start.</li>
             <li>Toggle iOS Screen Time off and back on (iOS Settings → Screen Time).</li>
             <li>Restart the iPhone. Screen Time wedges occasionally; a restart clears it.</li>
@@ -217,10 +227,15 @@
         </details>
 
         <details class="q">
+          <summary>I said "Don't Allow" on the Screen Time prompt by mistake.</summary>
+          <p>iOS only asks once. To re-enable, go to iOS Settings → Screen Time → toggle off, then on. Then return to awaymode and try Lock In again. The onboarding screen also shows a direct link to Settings when permission is denied.</p>
+        </details>
+
+        <details class="q">
           <summary>Live Activity isn't showing on my Lock Screen.</summary>
           <ol>
             <li>iOS Settings → Face ID &amp; Passcode → ensure Lock Screen access for notifications is allowed.</li>
-            <li>iOS Settings → Holt → Live Activities. Toggle on.</li>
+            <li>iOS Settings → awaymode → Live Activities. Toggle on.</li>
             <li>End the active session and start a new one. Live Activities are spawned at session start and don't retroactively attach.</li>
           </ol>
         </details>
@@ -228,15 +243,15 @@
         <details class="q">
           <summary>I'm not getting notifications when sessions end.</summary>
           <ol>
-            <li>iOS Settings → Notifications → Holt. Confirm Allow Notifications is on.</li>
+            <li>iOS Settings → Notifications → awaymode. Confirm Allow Notifications is on.</li>
             <li>If you denied the prompt on first launch, you'll need to enable it here manually.</li>
-            <li>Force-quit and reopen Holt to re-register the notification scheduler.</li>
+            <li>Force-quit and reopen awaymode to re-register the notification scheduler.</li>
           </ol>
         </details>
 
         <details class="q">
           <summary>The widget isn't updating.</summary>
-          <p>Holt asks WidgetKit to refresh after every session state change, but iOS controls how often widget timelines actually run. If your widget is stuck, remove and re-add it from the Home Screen. That forces a fresh timeline.</p>
+          <p>awaymode asks WidgetKit to refresh after every session state change, but iOS controls how often widget timelines actually run. If your widget is stuck, remove and re-add it from the Home Screen. That forces a fresh timeline.</p>
         </details>
 
         <details class="q">
@@ -258,7 +273,7 @@
     <a href="index.html">Home</a>
     <a href="privacy.html">Privacy</a>
     <a href="mailto:jemrsgn9@gmail.com">Contact</a>
-    <span class="foot__right">Fen keeps watch.</span>
+    <span class="foot__right">stay off it.</span>
   </footer>
 </main>
 

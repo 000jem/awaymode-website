@@ -3,22 +3,22 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta name="theme-color" content="#0C0A08" />
-<title>Holt — a focus app that actually blocks your phone</title>
-<meta name="description" content="Holt is a focus timer for iPhone with real Screen Time app blocking. No accounts. No analytics. No servers. Built for the work that actually matters." />
-<meta property="og:title" content="Holt — a focus app that actually blocks your phone" />
-<meta property="og:description" content="Real app blocking via Apple Screen Time. Built for iPhone. No accounts, no analytics, no servers." />
+<meta name="theme-color" content="#05070D" />
+<title>awaymode. Stay off it</title>
+<meta name="description" content="awaymode is a focus timer for iPhone that actually shields the apps eating your day. Built on Apple's Screen Time. No accounts. No analytics. No servers." />
+<meta property="og:title" content="awaymode. Stay off it" />
+<meta property="og:description" content="A focus timer that actually blocks. Built on Apple's Screen Time. No accounts, no analytics, no servers." />
 <meta property="og:type" content="website" />
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%23E07856'/%3E%3Ctext x='50' y='72' font-size='62' font-family='serif' font-weight='600' text-anchor='middle' fill='%23FFF1D6'%3EH%3C/text%3E%3C/svg%3E" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%2305070D'/%3E%3Ctext x='50' y='62' font-size='28' font-family='Plus Jakarta Sans, sans-serif' font-weight='700' text-anchor='middle' fill='%23F8FAFC' letter-spacing='-1'%3Ea%3Ctspan font-weight='300' fill='%237DD3FC'%3E/%3C/tspan%3Em%3C/text%3E%3C/svg%3E" />
 <link rel="stylesheet" href="assets/style.css" />
 </head>
 <body>
 
 <nav class="nav">
   <div class="container nav__row">
-    <a href="index.html" class="nav__brand">Holt</a>
+    <a href="index.html" class="nav__brand">away<span class="slash">/</span>mode</a>
     <div class="nav__links">
-      <a href="#how">How it works</a>
+      <a href="#how">How</a>
       <a href="#modes">Modes</a>
       <a href="#pricing">Pricing</a>
       <a href="privacy.html">Privacy</a>
@@ -30,342 +30,169 @@
 
 <main>
 
-<!-- HERO ─────────────────────────────────────────────────────── -->
+<!-- HERO -->
 <section class="container hero">
   <div class="hero__text">
     <p class="eyebrow">Focus app for iPhone</p>
-    <h1>Block the apps<br>that keep eating <span class="ember">your day</span>.</h1>
-    <p class="hero__sub">A quiet place to focus. Built on Apple's Screen Time, not a wishful overlay.</p>
+    <h1>stay <span class="blue">off</span> it.</h1>
+    <p class="hero__sub">A focus timer that actually shields the apps eating your day.</p>
     <p class="hero__body">
-      Pick a length of time, choose what to shut out, and start. iOS hides the apps you flagged for the duration of the session. When the timer ends, they come back. Nothing about your work leaves your phone.
+      Pick how long you're going away. Pick what you're shutting out. iOS removes those apps until the timer ends. Nothing about your work leaves your phone.
     </p>
     <div class="hero__actions">
-      <a class="btn" href="#">Get Holt <span class="btn__arrow">→</span></a>
-      <a class="btn btn--ghost" href="#how">See how it works</a>
+      <a class="btn" href="#">Get awaymode <span class="btn__arrow">→</span></a>
+      <a class="btn btn--ghost" href="#how">How it works</a>
     </div>
     <p class="hero__meta">
-      <strong>Free</strong> with optional Pro upgrade. iPhone, iOS 17 and up.
+      <strong>Free</strong> with optional Pro. iPhone, iOS 17 and up.
     </p>
   </div>
 
-  <!-- CSS-only device mockup. No image asset, no JS, no Figma export. -->
+  <!-- CSS-only device mockup. Mirrors the idle Timer canvas. -->
   <div class="device" aria-hidden="true">
     <div class="device__inner">
       <div>
-        <div class="device__greeting">Quiet hours <span class="moon">●</span></div>
-        <div class="device__h">Ready to focus,<br>with <span class="ember">Fen</span>?</div>
+        <div class="device__brand">
+          <span class="wordmark">away<span class="slash">/</span>mode</span>
+          <span class="tag">stay off it</span>
+        </div>
       </div>
 
-      <div class="device__disc">
-        <div class="device__big">25</div>
-        <div class="device__small">MINUTES</div>
+      <div>
+        <div class="device__mode">FOCUS</div>
+        <div class="device__time">25<span class="sec">:00</span></div>
+        <div class="device__descriptor">4 rounds · 5 min rest</div>
       </div>
 
-      <div class="device__modes">
-        <div class="device__mode">
-          <span class="device__mode__icon">⚡</span>
-          <span>Quick</span>
-          <span class="device__mode__min">10m</span>
+      <div>
+        <div class="device__pills">
+          <div class="device__pill">Flow</div>
+          <div class="device__pill device__pill--active">Focus</div>
+          <div class="device__pill">Deep</div>
         </div>
-        <div class="device__mode device__mode--active">
-          <span class="device__mode__icon">◷</span>
-          <span>Pomodoro</span>
-          <span class="device__mode__min">25×4</span>
-        </div>
-        <div class="device__mode">
-          <span class="device__mode__icon">▲</span>
-          <span>Deep</span>
-          <span class="device__mode__min">90m</span>
-        </div>
+        <div class="device__cta">Lock In</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- STAT BAND ────────────────────────────────────────────────── -->
+<!-- STAT BAND -->
 <section class="container">
   <div class="stats">
-    <div class="stat">
-      <div class="stat__big">0</div>
-      <div class="stat__cap">Servers</div>
-    </div>
-    <div class="stat">
-      <div class="stat__big">0</div>
-      <div class="stat__cap">Trackers</div>
-    </div>
-    <div class="stat">
-      <div class="stat__big">0</div>
-      <div class="stat__cap">Ads, ever</div>
-    </div>
-    <div class="stat">
-      <div class="stat__big">100<span class="ember">%</span></div>
-      <div class="stat__cap">On device</div>
-    </div>
+    <div class="stat"><div class="stat__big">0</div><div class="stat__cap">Servers</div></div>
+    <div class="stat"><div class="stat__big">0</div><div class="stat__cap">Trackers</div></div>
+    <div class="stat"><div class="stat__big">0</div><div class="stat__cap">Ads, ever</div></div>
+    <div class="stat"><div class="stat__big">100<span class="blue">%</span></div><div class="stat__cap">On device</div></div>
   </div>
 </section>
 
-<!-- HOW IT WORKS ─────────────────────────────────────────────── -->
+<!-- HOW -->
 <section class="container section" id="how">
   <div class="section__head">
     <p class="eyebrow">How it works</p>
-    <h2>Three taps from a tab open to <span class="ember">work that lands</span>.</h2>
-    <p>The point of Holt is that you stop thinking about it. The session is short to set up, hard to escape from, and silent the rest of the time.</p>
+    <h2>three taps from open <span class="blue">to gone</span>.</h2>
+    <p>The point of awaymode is that you stop thinking about it. Set up is short, the latch is hard to break, and the rest of the time the app is quiet.</p>
   </div>
 
   <div class="steps">
     <div class="step">
       <span class="step__num">01</span>
       <h3>Pick what to block.</h3>
-      <p>iOS Screen Time lets you select apps, whole categories (Social, Games, News), or specific websites. Each Holt mode keeps its own list.</p>
+      <p>iOS Screen Time lets you flag apps or whole categories (Social, Games, News). Each awaymode mode keeps its own list.</p>
     </div>
     <div class="step">
       <span class="step__num">02</span>
-      <h3>Choose your length.</h3>
-      <p>Quick is ten minutes. Pomodoro chains four cycles. Deep is ninety minutes of strict, no-bail focus. Or roll your own.</p>
+      <h3>Pick how long.</h3>
+      <p>Flow, Focus, Deep, or your own custom mode. Strict modes don't have an end-early button. By design.</p>
     </div>
     <div class="step">
       <span class="step__num">03</span>
-      <h3>Sit with the work.</h3>
-      <p>Tap the timer or tap Fen. The shield goes up. iOS quietly returns a system block if you reach for a flagged app. The timer ends, the apps come back, your sit is logged.</p>
+      <h3>Lock in.</h3>
+      <p>iOS hides what you flagged for the duration. The Live Activity sits on your Lock Screen. When the timer ends, your apps come back.</p>
     </div>
   </div>
 </section>
 
-<!-- FEATURES ─────────────────────────────────────────────────── -->
-<section class="container section">
-  <div class="section__head">
-    <p class="eyebrow">What's under the hood</p>
-    <h2>An iOS app, made the iOS way.</h2>
-    <p>Holt is built entirely on Apple frameworks. No React Native, no web wrapper, no third-party SDK doing surveillance in the background. The native stack is the product.</p>
-  </div>
-
-  <div class="features">
-    <div class="feature">
-      <span class="feature__tag">FAMILY CONTROLS</span>
-      <h3>Real blocking, at the OS level.</h3>
-      <p>Holt uses Apple's FamilyControls and ManagedSettings frameworks to apply a shield at the system level. The apps you select cannot be opened until the session ends. This is the same mechanism Apple's own Screen Time uses.</p>
-    </div>
-    <div class="feature">
-      <span class="feature__tag">ACTIVITYKIT</span>
-      <h3>Lock Screen + Dynamic Island.</h3>
-      <p>Live Activities show the remaining time on your Lock Screen and inside the Dynamic Island, with the right tap target to end the session if your mode allows it.</p>
-    </div>
-    <div class="feature">
-      <span class="feature__tag">HEALTHKIT</span>
-      <h3>Mindful Minutes, if you ask for them.</h3>
-      <p>Opt in once and every completed focus session writes to Apple Health as Mindful Minutes. Holt only writes; it never reads. Revoke any time in iOS Settings.</p>
-    </div>
-    <div class="feature">
-      <span class="feature__tag">SWIFTDATA</span>
-      <h3>History lives only on your phone.</h3>
-      <p>Session logs, mode configurations, and Screen Time selection tokens are stored locally in Apple's SwiftData. There is no cloud sync, no server-side backup, and no analytics SDK reading your data on the side.</p>
-    </div>
-    <div class="feature">
-      <span class="feature__tag">APP INTENTS</span>
-      <h3>Siri and Shortcuts ready.</h3>
-      <p>Start a session by voice or via a Shortcut. "Hey Siri, start a Holt session" works from a locked screen. Build a morning automation that opens with a 25-minute sit.</p>
-    </div>
-    <div class="feature">
-      <span class="feature__tag">WIDGETKIT</span>
-      <h3>Widgets that mean something.</h3>
-      <p>Home Screen and Lock Screen widgets show your current session or, when idle, today's focused minutes. Updated on every session transition, not on a polling timer.</p>
-    </div>
-  </div>
-</section>
-
-<!-- COMPARISON ──────────────────────────────────────────────── -->
-<section class="container section">
-  <div class="section__head">
-    <p class="eyebrow">Why this, not that</p>
-    <h2>The opposite of <span class="ember">gamified focus</span>.</h2>
-    <p>You've already tried the other ones. Holt is built for the person who closed Forest after their third dead tree and went back to Notes app full screen.</p>
-  </div>
-
-  <div class="compare">
-    <div class="compare__col compare__col--others">
-      <h4>Most focus apps</h4>
-      <ul>
-        <li>Plant a tree. Kill the tree if you fail. Repeat for dopamine.</li>
-        <li>Streaks that punish you for taking a day off.</li>
-        <li>Friend invites, leaderboards, shame loops.</li>
-        <li>Analytics SDK quietly shipping your usage off-device.</li>
-        <li>Subscription required for the basics.</li>
-        <li>Web wrapper that taps an overlay instead of blocking apps.</li>
-      </ul>
-    </div>
-    <div class="compare__col compare__col--holt">
-      <h4>Holt</h4>
-      <ul>
-        <li>A session. The work. The session ends. Repeat.</li>
-        <li>No streak to lose. Consistency is its own reward.</li>
-        <li>No social anything. Focus is a solo act.</li>
-        <li>Zero servers, zero analytics, zero trackers.</li>
-        <li>Free tier runs unlimited sessions.</li>
-        <li>Native iOS shield via Apple's Screen Time.</li>
-      </ul>
-    </div>
-  </div>
-</section>
-
-<!-- MODES ────────────────────────────────────────────────────── -->
+<!-- MODES -->
 <section class="container section" id="modes">
   <div class="section__head">
     <p class="eyebrow">Modes</p>
-    <h2>Three commitments, plus a fourth you build.</h2>
-    <p>Each mode keeps its own selection of blocked apps. Tap a tile to load it, tap the timer to start it.</p>
+    <h2>three built-in. <span class="blue">make your own.</span></h2>
+    <p>Flow and Focus are free. With full app blocking. Deep mode and custom modes unlock with Pro.</p>
   </div>
 
   <div class="modes">
-    <div class="mode-row">
-      <div class="mode-row__name">Quick</div>
-      <div class="mode-row__spec">10 min</div>
-      <p class="mode-row__desc">One block. For the inbox sweep, the hard email, the single design pass before lunch.</p>
+    <div class="mode mode--free">
+      <div class="mode__name">Flow</div>
+      <div class="mode__time">10</div>
+      <p class="mode__desc">One short block. The between-meetings option. Free.</p>
     </div>
-    <div class="mode-row">
-      <div class="mode-row__name">Pomodoro</div>
-      <div class="mode-row__spec">25 × 4 · 5m rest</div>
-      <p class="mode-row__desc">The classic Cirillo chain. 115 minutes wall-clock with three breaks. Notifications fire at every phase boundary so you know when to step away and when to come back.</p>
+    <div class="mode mode--free">
+      <div class="mode__name">Focus</div>
+      <div class="mode__time">25<span style="font-size:0.6em;color:var(--grey);font-weight:500;letter-spacing:0;">×4</span></div>
+      <p class="mode__desc">Classic pomodoro chain. 25 min work, 5 min rest, four rounds. Free.</p>
     </div>
-    <div class="mode-row">
-      <div class="mode-row__name">Deep</div>
-      <div class="mode-row__spec">90 min · strict</div>
-      <p class="mode-row__desc">Strict mode. The shield holds for the entire ninety minutes; the End button is disabled. For the day the work has to land.</p>
-    </div>
-    <div class="mode-row">
-      <div class="mode-row__name">Custom</div>
-      <div class="mode-row__spec">your call</div>
-      <p class="mode-row__desc">Set the minutes, the cycles, the break length, the blocked apps, and the strictness. Save as many as you need.</p>
+    <div class="mode">
+      <div class="mode__name">Deep</div>
+      <div class="mode__time">90</div>
+      <p class="mode__desc">No early end. Strict mode locks the latch the whole time. Pro.</p>
     </div>
   </div>
 </section>
 
-<!-- PRICING ──────────────────────────────────────────────────── -->
+<!-- PRICING -->
 <section class="container section" id="pricing">
   <div class="section__head">
     <p class="eyebrow">Pricing</p>
-    <h2>Free to focus. <span class="ember">Pay only if you want the rest</span>.</h2>
-    <p>Quick and Pomodoro are free, full-length, no time limit. The paywall opens the moment you reach for strict mode, app blocking, or a custom mode.</p>
+    <h2>pay once, or <span class="blue">don't pay at all</span>.</h2>
+    <p>Free covers Flow and Focus. Full app blocking included. Pro unlocks Deep mode, custom modes, Apple Health, and Siri.</p>
   </div>
 
   <div class="pricing">
     <div class="plan">
-      <div class="plan__name">Free</div>
-      <div class="plan__price">$0</div>
-      <div class="plan__cycle">Forever</div>
-      <ul>
-        <li>Quick mode (10 min)</li>
-        <li>Pomodoro mode (25×4)</li>
-        <li>Session history</li>
-        <li>Live Activities + widgets</li>
-        <li class="dim">No app blocking</li>
-        <li class="dim">No strict mode</li>
-        <li class="dim">No custom modes</li>
+      <div class="plan__name">Monthly</div>
+      <div class="plan__price">$6.99<span class="per">/mo</span></div>
+      <p class="plan__desc">Cancel anytime. Billed monthly through your Apple ID.</p>
+      <ul class="plan__list">
+        <li>Deep mode (no early end)</li>
+        <li>Custom modes</li>
+        <li>Apple Health writes</li>
+        <li>Siri + Shortcuts</li>
       </ul>
-      <a class="btn btn--ghost" href="#">Download free</a>
     </div>
-
-    <div class="plan plan--feature">
-      <span class="plan__tag">7-day trial</span>
-      <div class="plan__name">Pro · Annual</div>
-      <div class="plan__price">$29.99<span class="small"> / year</span></div>
-      <div class="plan__cycle">$2.50 / month equivalent</div>
-      <ul>
-        <li>Everything in Free</li>
-        <li>Real app blocking (Screen Time)</li>
-        <li>Strict mode (Deep Holt)</li>
-        <li>Custom modes, unlimited</li>
-        <li>Apple Health integration</li>
-        <li>Siri and Shortcuts</li>
+    <div class="plan plan--best">
+      <span class="plan__badge">SAVE 58%</span>
+      <div class="plan__name">Annual</div>
+      <div class="plan__price">$34.99<span class="per">/yr</span></div>
+      <p class="plan__desc">7-day free trial, then $34.99/yr. Cancel anytime.</p>
+      <ul class="plan__list">
+        <li>Everything in monthly</li>
+        <li>Effective $2.92/mo</li>
+        <li>One charge a year</li>
       </ul>
-      <a class="btn" href="#">Start free trial <span class="btn__arrow">→</span></a>
     </div>
-
-    <div class="plan">
-      <div class="plan__name">Pro · Monthly</div>
-      <div class="plan__price">$5.99<span class="small"> / month</span></div>
-      <div class="plan__cycle">Cancel anytime</div>
-      <ul>
-        <li>Everything in Annual</li>
-        <li>Month-to-month</li>
-        <li>No commitment</li>
-      </ul>
-      <a class="btn btn--ghost" href="#">Choose monthly</a>
-    </div>
-
     <div class="plan">
       <div class="plan__name">Lifetime</div>
-      <div class="plan__price">$59</div>
-      <div class="plan__cycle">One-time, never renews</div>
-      <ul>
-        <li>Everything in Annual</li>
-        <li>No subscription</li>
-        <li>All future updates</li>
+      <div class="plan__price">$89<span class="per">once</span></div>
+      <p class="plan__desc">One payment. Yours forever. No renewal, no nag.</p>
+      <ul class="plan__list">
+        <li>Everything, no expiry</li>
+        <li>Transfers across iPhones</li>
+        <li>Restore on any Apple ID device</li>
       </ul>
-      <a class="btn btn--ghost" href="#">Buy once</a>
-    </div>
-  </div>
-</section>
-
-<!-- NOT INCLUDED ─────────────────────────────────────────────── -->
-<section class="container section">
-  <div class="section__head">
-    <p class="eyebrow">What it doesn't do</p>
-    <h2>A short list, on purpose.</h2>
-    <p>Worth knowing before you download.</p>
-  </div>
-
-  <div class="features">
-    <div class="feature">
-      <h3>No iCloud sync (yet).</h3>
-      <p>Holt v1 is single-device on purpose. Less data leaves your phone when there are fewer places for it to go. iCloud sync is on the v1.1 roadmap if there's demand.</p>
-    </div>
-    <div class="feature">
-      <h3>No iPad or Mac (yet).</h3>
-      <p>iPhone only at launch. iPad is a small port; Mac is further out. Tell us which you want.</p>
-    </div>
-    <div class="feature">
-      <h3>No AI coach.</h3>
-      <p>No suggestions about what you should be focusing on, no nudges, no "summary of your week" emails. The mode is the mode; the work is yours.</p>
-    </div>
-    <div class="feature">
-      <h3>No data export (yet).</h3>
-      <p>Your history is yours, but v1 doesn't have a CSV button. If you need to move data out of Holt, email and we'll prioritise it.</p>
-    </div>
-  </div>
-</section>
-
-<!-- ABOUT ────────────────────────────────────────────────────── -->
-<section class="container section">
-  <div class="section__head">
-    <p class="eyebrow">Behind it</p>
-    <h2>One person. One app. One inbox.</h2>
-  </div>
-
-  <div class="about">
-    <div class="about__mark">H.</div>
-    <div>
-      <p>
-        Holt is built by an indie iOS developer who got tired of focus apps that
-        treat phone addiction as a problem to solve through gamification. There
-        is no VC. There is no growth team. There is no roadmap meeting deciding
-        which engagement loop to bolt on next.
-      </p>
-      <p>
-        Email lands in one inbox. Bug reports get read. Feature requests get
-        considered against whether they make the app quieter or louder. The
-        ones that make it quieter ship.
-      </p>
     </div>
   </div>
 </section>
 
 <footer class="container foot">
+  <a href="index.html">Home</a>
   <a href="privacy.html">Privacy</a>
   <a href="support.html">Support</a>
   <a href="mailto:jemrsgn9@gmail.com">Contact</a>
-  <span class="foot__right">A holt is a fox's den.</span>
+  <span class="foot__right">stay off it.</span>
 </footer>
 
 </main>
+
 </body>
 </html>

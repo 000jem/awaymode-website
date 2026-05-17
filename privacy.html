@@ -3,17 +3,17 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta name="theme-color" content="#0C0A08" />
-<title>Privacy Policy — Holt</title>
-<meta name="description" content="Holt collects no personal data. No accounts, no analytics, no servers. Everything stays on your iPhone." />
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%23E07856'/%3E%3Ctext x='50' y='72' font-size='62' font-family='serif' font-weight='600' text-anchor='middle' fill='%23FFF1D6'%3EH%3C/text%3E%3C/svg%3E" />
+<meta name="theme-color" content="#05070D" />
+<title>Privacy Policy. Awaymode</title>
+<meta name="description" content="awaymode collects no personal data. No accounts, no analytics, no servers. Everything stays on your iPhone." />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%2305070D'/%3E%3Ctext x='50' y='62' font-size='28' font-family='Plus Jakarta Sans, sans-serif' font-weight='700' text-anchor='middle' fill='%23F8FAFC' letter-spacing='-1'%3Ea%3Ctspan font-weight='300' fill='%237DD3FC'%3E/%3C/tspan%3Em%3C/text%3E%3C/svg%3E" />
 <link rel="stylesheet" href="assets/style.css" />
 </head>
 <body>
 
 <nav class="nav">
   <div class="container nav__row">
-    <a href="index.html" class="nav__brand">Holt</a>
+    <a href="index.html" class="nav__brand">away<span class="slash">/</span>mode</a>
     <div class="nav__links">
       <a href="index.html">Home</a>
       <a href="privacy.html" aria-current="page">Privacy</a>
@@ -44,95 +44,97 @@
     <article class="doc__body">
       <p class="eyebrow">Legal</p>
       <h1>Privacy Policy</h1>
-      <p class="doc__meta">Last updated 14 November 2026</p>
+      <p class="doc__meta">Last updated 17 May 2026</p>
 
       <h2 id="summary">Summary</h2>
       <p>
-        Holt runs entirely on your iPhone. We don't operate any server that
-        could receive your data. There are no user accounts, no analytics SDK,
-        and no third-party tracking. The App Store privacy nutrition label for
-        Holt is <strong>Data Not Collected</strong>, and the rest of this page
-        spells out what that means in practice.
+        awaymode runs entirely on your iPhone. There is no server. There are
+        no user accounts. There is no analytics SDK and no third-party
+        tracking. The App Store privacy nutrition label for awaymode is
+        <strong>Data Not Collected</strong>, and the rest of this page spells
+        out what that means in practice.
       </p>
 
       <h2 id="stored">Data stored on your device</h2>
       <p>
-        Holt keeps a small amount of information locally so the app can do its
-        job. Apple's SwiftData persists it inside the app's sandbox; nothing in
-        this section is transmitted off your device by Holt.
+        awaymode keeps a small amount of information locally so the app can
+        do its job. Apple's SwiftData persists it inside the app's sandbox;
+        nothing in this section is transmitted off your device by awaymode.
       </p>
       <ul>
         <li><strong>Session history.</strong> Start time, planned length, actual length, completion status, and the mode of each focus session.</li>
         <li><strong>Focus modes.</strong> The modes you create or customise: name, duration, cycle count, break length, icon, strict toggle, and the Screen Time selection attached to each.</li>
         <li><strong>App preferences.</strong> Default mode, theme, notification toggles, onboarding completion, and similar local settings.</li>
-        <li><strong>Screen Time activity tokens.</strong> When you select apps, categories, or websites to block, iOS returns opaque tokens that reference your selection. Holt stores these tokens so it can re-apply your selection at the start of each session. The tokens are anonymised by Apple; we cannot read app names or device identifiers from them, and they only function on the device that issued them.</li>
+        <li><strong>Screen Time activity tokens.</strong> When you select apps or categories to shield, iOS returns opaque tokens that reference your selection. awaymode stores these tokens so it can re-apply your selection at the start of each session. The tokens are anonymised by Apple. We can't read app names or device identifiers from them, and they only function on the device that issued them.</li>
       </ul>
       <p>
-        Removing Holt from your iPhone deletes everything above. There is no
-        copy on a Holt server because there is no Holt server.
+        Removing awaymode from your iPhone deletes everything above. There is
+        no copy on an awaymode server because there is no awaymode server.
       </p>
 
       <h2 id="not-collected">Data not collected</h2>
-      <p>Holt does not collect, transmit, or have access to:</p>
+      <p>awaymode does not collect, transmit, or have access to:</p>
       <ul>
         <li>Your name, email address, phone number, or any account credentials.</li>
         <li>Device identifiers, advertising identifiers, IDFA, or fingerprint data.</li>
         <li>Usage analytics, telemetry, crash reports containing your content, or session metrics.</li>
         <li>Location, IP address, contacts, calendar, photos, microphone, or camera.</li>
         <li>The list of apps installed on your device.</li>
-        <li>The contents of any app you have asked Holt to block.</li>
+        <li>The contents of any app or category you have asked awaymode to shield.</li>
       </ul>
 
       <h2 id="third-parties">Apple frameworks used</h2>
       <p>
-        Holt is built from the Apple SDK. We don't embed any third-party
-        analytics, advertising, attribution, or experimentation libraries. The
-        Apple frameworks Holt interacts with, and the data each one touches:
+        awaymode is built from the Apple SDK. We don't embed any
+        third-party analytics, advertising, attribution, or experimentation
+        libraries. The Apple frameworks awaymode interacts with, and the
+        data each one touches:
       </p>
       <ul>
         <li><strong>FamilyControls / ManagedSettings / DeviceActivity.</strong> Apple's Screen Time framework, used to apply and lift the app shield. Selection tokens are stored on-device.</li>
-        <li><strong>StoreKit 2.</strong> Apple's in-app purchase framework. Apple processes payment; Holt receives a local receipt confirming what you bought.</li>
-        <li><strong>HealthKit.</strong> Only if you opt in. Holt writes completed sessions as Mindful Minutes. Holt never reads from Health.</li>
-        <li><strong>UserNotifications.</strong> Used to schedule local notifications at session end and at each Pomodoro phase boundary. No server is involved.</li>
+        <li><strong>StoreKit 2.</strong> Apple's in-app purchase framework. Apple processes payment; awaymode receives a local receipt confirming what you bought.</li>
+        <li><strong>HealthKit.</strong> Only if you opt in. awaymode writes completed sessions as Mindful Minutes. awaymode never reads from Health.</li>
+        <li><strong>UserNotifications.</strong> Used to schedule local notifications at session end and at each phase boundary in a chained mode. No server is involved.</li>
         <li><strong>WidgetKit and ActivityKit.</strong> Power the Home Screen widgets, Lock Screen widgets, and Live Activities. They read state from the same on-device store as the main app.</li>
         <li><strong>App Intents.</strong> Power Siri and Shortcuts integration. Each invocation runs locally.</li>
       </ul>
 
       <h2 id="health">Apple Health</h2>
       <p>
-        If you turn on the Health toggle in Holt's settings, completed focus
-        sessions are written to Apple Health as <em>Mindful Minutes</em>. This
-        is a one-way write: Holt writes; Holt does not read from Health. The
-        permission is requested through the standard iOS dialog and can be
-        revoked at any time in
-        <strong>Settings → Privacy &amp; Security → Health → Holt</strong>.
-        Revoking has no effect on Holt's other features.
+        If you turn on the Health toggle in awaymode's settings, completed
+        focus sessions are written to Apple Health as <em>Mindful Minutes</em>.
+        This is a one-way write: awaymode writes; awaymode does not read from
+        Health. The permission is requested through the standard iOS dialog
+        and can be revoked at any time in
+        <strong>Settings → Privacy &amp; Security → Health → awaymode</strong>.
+        Revoking has no effect on awaymode's other features.
       </p>
 
       <h2 id="purchases">Purchases</h2>
       <p>
-        Holt offers an optional Pro upgrade through Apple's in-app purchase
-        system. Apple processes the payment and returns an opaque receipt to
-        your device confirming what you bought. Holt reads this receipt
-        on-device to unlock paid features. The receipt does not contain your
-        name, email, payment information, or any other personal identifier.
+        awaymode offers an optional Pro upgrade through Apple's in-app
+        purchase system. Apple processes the payment and returns an opaque
+        receipt to your device confirming what you bought. awaymode reads
+        this receipt on-device to unlock paid features. The receipt does not
+        contain your name, email, payment information, or any other personal
+        identifier.
       </p>
       <p>
         Subscriptions auto-renew unless cancelled at least 24 hours before
         the period ends. Manage or cancel any time in
-        <strong>Settings → [your name] → Subscriptions</strong>. Holt cannot
-        see, manage, or refund your subscription state directly; Apple handles
-        all of it. For refunds, visit
+        <strong>Settings → [your name] → Subscriptions</strong>. awaymode
+        cannot see, manage, or refund your subscription state directly; Apple
+        handles all of it. For refunds, visit
         <a href="https://reportaproblem.apple.com" rel="noopener">reportaproblem.apple.com</a>.
       </p>
 
       <h2 id="children">Children</h2>
       <p>
-        Holt is rated 4+ on the App Store. Because Holt collects no personal
-        information from any user, it complies with the U.S. Children's Online
-        Privacy Protection Act (COPPA) and the EU General Data Protection
-        Regulation (GDPR) by default. We don't knowingly collect data from
-        children because we don't collect data from anyone.
+        awaymode is rated 4+ on the App Store. Because awaymode collects no
+        personal information from any user, it complies with the U.S.
+        Children's Online Privacy Protection Act (COPPA) and the EU General
+        Data Protection Regulation (GDPR) by default. We don't knowingly
+        collect data from children because we don't collect data from anyone.
       </p>
 
       <h2 id="changes">Changes</h2>
@@ -140,15 +142,16 @@
         If this policy changes in a way that affects how data is handled,
         the updated version will appear on this page with a new
         <em>last updated</em> date, and the relevant app release notes will
-        flag the change. Because we don't run an email list, this page is the
-        only place we can publish updates.
+        flag the change. Because we don't run an email list, this page is
+        the only place we can publish updates.
       </p>
 
       <h2 id="contact">Contact</h2>
       <p>
-        For questions about this policy or about Holt's privacy practices,
-        email <a href="mailto:jemrsgn9@gmail.com">jemrsgn9@gmail.com</a>. Replies come
-        from a person.
+        For questions about this policy or about awaymode's privacy
+        practices, email
+        <a href="mailto:jemrsgn9@gmail.com">jemrsgn9@gmail.com</a>. Replies
+        come from a person.
       </p>
     </article>
 
@@ -158,7 +161,7 @@
     <a href="index.html">Home</a>
     <a href="support.html">Support</a>
     <a href="mailto:jemrsgn9@gmail.com">Contact</a>
-    <span class="foot__right">Updated November 2026</span>
+    <span class="foot__right">Updated May 2026</span>
   </footer>
 </main>
 

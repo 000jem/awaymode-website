@@ -4,10 +4,10 @@ Static site for **Holt**, the iOS focus app.
 
 Three pages, one stylesheet, no build step:
 
-- `index.html` — landing
-- `privacy.html` — privacy policy
-- `support.html` — support / FAQ
-- `assets/style.css` — shared styles
+- `index.html`. Landing
+- `privacy.html`. Privacy policy
+- `support.html`. Support / FAQ
+- `assets/style.css`. Shared styles
 
 ## Local preview
 
@@ -37,7 +37,7 @@ Visual tokens are pulled from the iOS app's warm-dark ember palette and
 defined as CSS custom properties at the top of `assets/style.css`. Two
 typefaces, both from Google Fonts:
 
-- **Fraunces** (semibold 600) — wordmark and headings
-- **Jost** (400/500/600) — body and UI
+- **Fraunces** (semibold 600). Wordmark and headings
+- **Jost** (400/500/600). Body and UI
 
 Keep it quiet.
