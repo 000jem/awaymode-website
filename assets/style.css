@@ -1,9 +1,16 @@
-/* Holt — production stylesheet.
- * Container + grid system, single-file, no build.
- * Fraunces (serif) for display; Jost (sans) for UI and body.
+/* Holt website — design-system pass.
+ *
+ * Type ramp matches the iOS app:
+ *  - Space Grotesk → display (headlines, big numerals, screen titles)
+ *  - DM Sans       → UI (body, labels, buttons, captions)
+ *  - Fraunces      → editorial accent (the "Holt" wordmark + italic
+ *                    emphasis words inside a headline)
+ *
+ * Single stylesheet, no build step. All three families pulled from
+ * Google Fonts.
  */
 
-@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Jost:wght@300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&display=swap');
 
 :root {
   --bg-0: #0C0A08;
@@ -17,8 +24,8 @@
 
   --line:    rgba(255, 200, 140, 0.10);
   --line-2:  rgba(255, 200, 140, 0.18);
-  --surface: rgba(255, 244, 224, 0.035);
-  --surface-2: rgba(255, 244, 224, 0.07);
+  --surface: rgba(255, 244, 224, 0.045);
+  --surface-2: rgba(255, 244, 224, 0.08);
 
   --ember:    #E07856;
   --ember-2:  #F08A65;
@@ -31,6 +38,11 @@
   --radius-sm: 8px;
   --radius:    12px;
   --radius-lg: 20px;
+
+  /* Type families */
+  --f-display: 'Space Grotesk', system-ui, -apple-system, sans-serif;
+  --f-ui:      'DM Sans', system-ui, -apple-system, sans-serif;
+  --f-serif:   'Fraunces', Georgia, serif;
 }
 
 * { box-sizing: border-box; }
@@ -43,10 +55,10 @@ body {
     linear-gradient(180deg, var(--bg-0), var(--bg-1) 50%, var(--bg-2));
   background-attachment: fixed;
   color: var(--cream);
-  font-family: 'Jost', system-ui, sans-serif;
+  font-family: var(--f-ui);
   font-size: 16px;
   line-height: 1.6;
-  letter-spacing: .003em;
+  letter-spacing: .002em;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -70,10 +82,13 @@ body {
   border-bottom: 1px solid var(--line);
 }
 .nav__row { height: 100%; display: flex; align-items: center; gap: 32px; }
+
+/* Wordmark stays Fraunces — per CLAUDE.md the "Holt" mark is the only
+   place Fraunces is the primary face. */
 .nav__brand {
-  font-family: 'Fraunces', serif;
+  font-family: var(--f-serif);
   font-weight: 600;
-  font-size: 20px;
+  font-size: 22px;
   letter-spacing: -.02em;
   color: var(--cream);
   text-decoration: none;
@@ -82,6 +97,8 @@ body {
 .nav__links a {
   color: var(--sand);
   text-decoration: none;
+  font-family: var(--f-ui);
+  font-weight: 400;
   transition: color .15s ease;
 }
 .nav__links a:hover, .nav__links a[aria-current="page"] { color: var(--cream); }
@@ -102,41 +119,55 @@ body {
 /* ─── Type ──────────────────────────────────────────────────── */
 
 .eyebrow {
+  font-family: var(--f-ui);
   font-weight: 500;
   font-size: 12.5px;
-  letter-spacing: .15em;
+  letter-spacing: .14em;
   text-transform: uppercase;
   color: var(--ember);
   margin: 0;
 }
 
-h1, h2, h3, h4 { color: var(--cream); margin: 0; font-family: 'Fraunces', serif; }
+h1, h2, h3, h4 {
+  color: var(--cream);
+  margin: 0;
+  font-family: var(--f-display);
+}
 
 h1 {
-  font-weight: 500;
-  font-size: clamp(44px, 6.5vw, 76px);
+  font-weight: 700;
+  font-size: clamp(44px, 6.8vw, 76px);
   line-height: 1.02;
-  letter-spacing: -.03em;
+  letter-spacing: -.035em;
 }
-h1 .ember { color: var(--ember); font-style: italic; font-weight: 400; }
+/* Italic-emphasis accent words inside a headline. Fraunces italic 500
+   reads as a soft serif highlight against the geometric Space Grotesk. */
+h1 .ember,
+h2 .ember,
+h3 .ember {
+  color: var(--ember);
+  font-family: var(--f-serif);
+  font-style: italic;
+  font-weight: 500;
+  letter-spacing: -.01em;
+}
 
 h2 {
-  font-weight: 500;
+  font-weight: 600;
   font-size: clamp(28px, 3.2vw, 40px);
-  line-height: 1.12;
-  letter-spacing: -.022em;
+  line-height: 1.14;
+  letter-spacing: -.028em;
 }
-h2 .ember { color: var(--ember); font-style: italic; font-weight: 400; }
 
 h3 {
-  font-weight: 500;
+  font-weight: 600;
   font-size: 20px;
-  letter-spacing: -.012em;
+  letter-spacing: -.018em;
   line-height: 1.25;
 }
 
 h4 {
-  font-family: 'Jost', sans-serif;
+  font-family: var(--f-ui);
   font-weight: 500;
   font-size: 11.5px;
   letter-spacing: .13em;
@@ -148,6 +179,7 @@ p, li {
   color: var(--sand);
   font-size: 16px;
   line-height: 1.62;
+  font-family: var(--f-ui);
 }
 p strong, li strong { color: var(--cream); font-weight: 500; }
 
@@ -178,8 +210,10 @@ code, kbd {
   gap: 10px;
   background: var(--ember);
   color: var(--cream);
-  font-weight: 500;
+  font-family: var(--f-display);
+  font-weight: 600;
   font-size: 14.5px;
+  letter-spacing: -.012em;
   padding: 13px 22px;
   border-radius: var(--radius);
   border: none;
@@ -214,13 +248,18 @@ code, kbd {
 
 .hero__text { max-width: 600px; }
 .hero__text .eyebrow { margin-bottom: 22px; }
+
+/* Hero subtitle stays serif italic — it's the only place the website
+   uses Fraunces as a body face, for editorial warmth right under the
+   headline. */
 .hero__sub {
-  font-family: 'Fraunces', serif;
+  font-family: var(--f-serif);
   font-style: italic;
   font-weight: 400;
   font-size: clamp(20px, 2.2vw, 24px);
   color: var(--sand);
   line-height: 1.4;
+  letter-spacing: -.008em;
   margin: 16px 0 24px;
   max-width: 38ch;
 }
@@ -240,7 +279,7 @@ code, kbd {
 }
 .hero__meta strong { color: var(--sand); font-weight: 500; }
 
-/* ─── Hero device mockup (pure CSS, no images) ────────────── */
+/* ─── Hero device mockup (CSS-only iPhone) ─────────────────── */
 
 .device {
   position: relative;
@@ -260,7 +299,6 @@ code, kbd {
   overflow: hidden;
 }
 .device::before {
-  /* Dynamic Island */
   content: '';
   position: absolute;
   top: 14px;
@@ -282,26 +320,34 @@ code, kbd {
   position: relative;
 }
 .device__greeting {
+  font-family: var(--f-ui);
   font-size: 11px;
-  color: var(--sand);
-  letter-spacing: .04em;
+  font-weight: 500;
+  color: var(--muted);
+  letter-spacing: .09em;
+  text-transform: uppercase;
   display: flex;
   align-items: center;
   gap: 5px;
 }
 .device__greeting .moon { color: var(--ember); }
 .device__h {
-  font-family: 'Fraunces', serif;
-  font-weight: 500;
+  font-family: var(--f-display);
+  font-weight: 700;
   font-size: 22px;
-  letter-spacing: -.018em;
+  letter-spacing: -.032em;
   line-height: 1.12;
   text-align: center;
   margin-top: 6px;
   color: var(--cream);
-  max-width: 70%;
+  max-width: 78%;
 }
-.device__h .ember { color: var(--ember); font-style: italic; font-weight: 400; }
+.device__h .ember {
+  color: var(--ember);
+  font-family: var(--f-serif);
+  font-style: italic;
+  font-weight: 500;
+}
 .device__disc {
   width: 170px;
   height: 170px;
@@ -316,14 +362,15 @@ code, kbd {
   margin: 4px 0;
 }
 .device__big {
-  font-family: 'Fraunces', serif;
-  font-weight: 300;
+  font-family: var(--f-display);
+  font-weight: 600;
   font-size: 78px;
   letter-spacing: -.04em;
   line-height: 1;
   color: var(--cream);
 }
 .device__small {
+  font-family: var(--f-ui);
   font-size: 10px;
   color: var(--sand);
   letter-spacing: .18em;
@@ -345,6 +392,7 @@ code, kbd {
   flex-direction: column;
   align-items: center;
   gap: 4px;
+  font-family: var(--f-ui);
   font-size: 9px;
   color: var(--sand);
 }
@@ -382,15 +430,21 @@ code, kbd {
   .stat:nth-child(4n), .stat:last-child { border-right: none; }
 }
 .stat__big {
-  font-family: 'Fraunces', serif;
-  font-weight: 400;
-  font-size: 42px;
+  font-family: var(--f-display);
+  font-weight: 700;
+  font-size: 44px;
   line-height: 1;
-  letter-spacing: -.025em;
+  letter-spacing: -.04em;
   color: var(--cream);
 }
-.stat__big .ember { color: var(--ember); font-style: italic; }
+.stat__big .ember {
+  color: var(--ember);
+  font-family: var(--f-serif);
+  font-style: italic;
+  font-weight: 500;
+}
 .stat__cap {
+  font-family: var(--f-ui);
   margin-top: 8px;
   font-size: 12px;
   letter-spacing: .12em;
@@ -423,8 +477,8 @@ code, kbd {
 @media (min-width: 800px) { .steps { grid-template-columns: repeat(3, 1fr); gap: 48px; } }
 
 .step__num {
-  font-family: 'Fraunces', serif;
-  font-weight: 400;
+  font-family: var(--f-display);
+  font-weight: 600;
   font-size: 56px;
   line-height: 1;
   letter-spacing: -.04em;
@@ -435,7 +489,7 @@ code, kbd {
 .step h3 { margin-bottom: 10px; }
 .step p { max-width: 38ch; margin: 0; font-size: 15.5px; line-height: 1.6; }
 
-/* ─── Features (numbered) ──────────────────────────────────── */
+/* ─── Features ──────────────────────────────────────────────── */
 
 .features {
   display: grid;
@@ -519,11 +573,11 @@ code, kbd {
 }
 .mode-row:last-child { border-bottom: 1px solid var(--line); }
 .mode-row__name {
-  font-family: 'Fraunces', serif;
-  font-weight: 500;
-  font-size: 19px;
+  font-family: var(--f-display);
+  font-weight: 600;
+  font-size: 20px;
   color: var(--cream);
-  letter-spacing: -.012em;
+  letter-spacing: -.022em;
 }
 .mode-row__spec {
   font-family: ui-monospace, monospace;
@@ -566,6 +620,7 @@ code, kbd {
   right: 16px;
   background: var(--ember);
   color: var(--cream);
+  font-family: var(--f-ui);
   font-size: 10.5px;
   letter-spacing: .1em;
   text-transform: uppercase;
@@ -574,21 +629,28 @@ code, kbd {
   font-weight: 500;
 }
 .plan__name {
-  font-family: 'Fraunces', serif;
-  font-weight: 500;
+  font-family: var(--f-display);
+  font-weight: 600;
   font-size: 22px;
+  letter-spacing: -.02em;
   color: var(--cream);
 }
 .plan__price {
-  font-family: 'Fraunces', serif;
-  font-weight: 400;
-  font-size: 36px;
+  font-family: var(--f-display);
+  font-weight: 700;
+  font-size: 38px;
   line-height: 1;
-  letter-spacing: -.025em;
+  letter-spacing: -.035em;
   margin: 14px 0 2px;
   color: var(--cream);
 }
-.plan__price .small { font-size: 14px; color: var(--sand); font-family: 'Jost', sans-serif; letter-spacing: 0; }
+.plan__price .small {
+  font-family: var(--f-ui);
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--sand);
+  letter-spacing: 0;
+}
 .plan__cycle { font-size: 13px; color: var(--muted); margin-bottom: 22px; }
 .plan ul { list-style: none; padding: 0; margin: 0 0 18px; flex: 1; }
 .plan li {
@@ -622,7 +684,7 @@ code, kbd {
 @media (min-width: 720px) { .about { grid-template-columns: 1fr 1.5fr; gap: 56px; } }
 
 .about__mark {
-  font-family: 'Fraunces', serif;
+  font-family: var(--f-serif);
   font-weight: 600;
   font-style: italic;
   font-size: 88px;
@@ -648,11 +710,15 @@ code, kbd {
   font-size: 13.5px;
   color: var(--muted);
 }
-.foot a { color: var(--sand); text-decoration: none; }
+.foot a {
+  color: var(--sand);
+  text-decoration: none;
+  font-family: var(--f-ui);
+}
 .foot a:hover { color: var(--ember); }
 .foot__right {
   margin-left: auto;
-  font-family: 'Fraunces', serif;
+  font-family: var(--f-serif);
   font-style: italic;
   color: var(--muted);
 }
@@ -678,7 +744,13 @@ code, kbd {
 @media (min-width: 1000px) { .doc__toc { display: block; } }
 .doc__toc h4 { margin: 0 0 14px; }
 .doc__toc ol { list-style: none; padding: 0; margin: 0; display: grid; gap: 12px; counter-reset: tocnum; }
-.doc__toc li { counter-increment: tocnum; padding-left: 30px; position: relative; font-size: 13.5px; }
+.doc__toc li {
+  counter-increment: tocnum;
+  padding-left: 30px;
+  position: relative;
+  font-size: 13.5px;
+  font-family: var(--f-ui);
+}
 .doc__toc li::before {
   content: counter(tocnum, decimal-leading-zero);
   position: absolute; left: 0; top: 1px;
@@ -715,6 +787,7 @@ details.q > summary {
   justify-content: space-between;
   align-items: flex-start;
   gap: 24px;
+  font-family: var(--f-ui);
   font-weight: 500;
   font-size: 16px;
   color: var(--cream);
@@ -722,8 +795,8 @@ details.q > summary {
 details.q > summary::-webkit-details-marker { display: none; }
 details.q > summary::after {
   content: '+';
-  font-family: 'Fraunces', serif;
-  font-weight: 300;
+  font-family: var(--f-display);
+  font-weight: 400;
   font-size: 22px;
   color: var(--ember);
   line-height: 1;
